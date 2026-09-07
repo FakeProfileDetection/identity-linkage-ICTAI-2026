@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GCS Upload Test - Enhanced Debugging</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .control-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        select, textarea, button {
+            font-size: 14px;
+            padding: 8px;
+        }
+        
+        textarea {
+            font-family: 'Courier New', monospace;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .debug-info {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+        
+        .debug-info h4 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .debug-item {
+            margin: 5px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        #result {
+            background: #f0f0f0;
+            padding: 15px;
+            min-height: 100px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .success {
+            color: green;
+            background-color: #e8f5e9 !important;
+        }
+        
+        .error {
+            color: red;
+            background-color: #ffebee !important;
+        }
+        
+        .info {
+            color: blue;
+            background-color: #e3f2fd !important;
+        }
+        
+        .filename-preview {
+            background-color: #e3f2fd;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GCS Upload Test - Enhanced Debugging</h1>
+    
+    <div class="control-group">
+        <label>Test Type:</label>
+        <select id="testType" onchange="updateContent()">
+            <option value="consent">Consent JSON</option>
+            <option value="demographics">Demographics JSON</option>
+            <option value="start_study">Start Study JSON</option>
+            <option value="completion">Completion JSON</option>
+            <option value="fb_keystroke">Facebook Keystroke CSV</option>
+            <option value="ig_keystroke">Instagram Keystroke CSV</option>
+            <option value="tw_keystroke">Twitter Keystroke CSV</option>
+            <option value="fb_post">Facebook Post TXT</option>
+            <option value="ig_post">Instagram Post TXT</option>
+            <option value="tw_post">Twitter Post TXT</option>
+            <option value="fb_metadata">Facebook Metadata JSON</option>
+            <option value="ig_metadata">Instagram Metadata JSON</option>
+            <option value="tw_metadata">Twitter Metadata JSON</option>
+        </select>
+    </div>
+    
+    <div class="control-group">
+        <label>File content:</label>
+        <textarea id="content" rows="12" cols="70"></textarea>
+    </div>
+    
+    <div class="filename-preview" id="filenamePreview"></div>
+    
+    <div class="control-group">
+        <button id="uploadBtn" onclick="testUpload()">Test Upload</button>
+        <button onclick="validateFilenameLocally()">Validate Filename Locally</button>
+        <button onclick="clearResults()">Clear Results</button>
+    </div>
+    
+    <div class="debug-info">
+        <h4>Pre-Upload Debug Info:</h4>
+        <div id="debugInfo"></div>
+    </div>
+    
+    <h3>Server Response:</h3>
+    <pre id="result">Ready to upload...</pre>
+
+    <script>
+    // User ID for testing - 32 character hex string
+    const TEST_USER_ID = 'a1b2c3d4e5f678901234567890123456';
+    const TEST_TASK_ID = '0';
+    
+    // Sample content for different file types
+    const sampleContent = {
+        consent: {
+            content: JSON.stringify({
+                consented: "Yes",
+                userId: TEST_USER_ID,
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent
+            }, null, 2),
+            filename: `${TEST_USER_ID}_consent.json`,
+            type: 'application/json'
+        },
+        demographics: {
+            content: JSON.stringify({
+                email: "test@example.com",
+                gender: "male",
+                age: "25_34",
+                handedness: "right",
+                education: "bachelor",
+                consent_email_for_future: true,
+                submission_timestamp: new Date().toISOString()
+            }, null, 2),
+            filename: `${TEST_USER_ID}_demographics.json`,
+            type: 'application/json'
+        },
+        start_study: {
+            content: JSON.stringify({
+                userId: TEST_USER_ID,
+                startTime: new Date().toISOString(),
+                studyVersion: "1.0",
+                browserInfo: {
+                    userAgent: navigator.userAgent,
+                    language: navigator.language,
+                    platform: navigator.platform
+                }
+            }, null, 2),
+            filename: `${TEST_USER_ID}_start_study.json`,
+            type: 'application/json'
+        },
+        completion: {
+            content: JSON.stringify({
+                userId: TEST_USER_ID,
+                completionTime: new Date().toISOString(),
+                tasksCompleted: 3,
+                totalDuration: 1800000
+            }, null, 2),
+            filename: `${TEST_USER_ID}_completion.json`,
+            type: 'application/json'
+        },
+        fb_keystroke: {
+            content: 'Press or Release,Key,Time\nP,h,1751815551976\nR,h,1751815552076\nP,e,1751815552176\nR,e,1751815552276\nP,l,1751815552376\nR,l,1751815552476\nP,l,1751815552576\nR,l,1751815552676\nP,o,1751815552776\nR,o,1751815552876',
+            filename: `f_${TEST_USER_ID}_${TEST_TASK_ID}.csv`,
+            type: 'text/csv'
+        },
+        ig_keystroke: {
+            content: 'Press or Release,Key,Time\nP,t,1751815551976\nR,t,1751815552076\nP,e,1751815552176\nR,e,1751815552276\nP,s,1751815552376\nR,s,1751815552476\nP,t,1751815552576\nR,t,1751815552676',
+            filename: `i_${TEST_USER_ID}_${TEST_TASK_ID}.csv`,
+            type: 'text/csv'
+        },
+        tw_keystroke: {
+            content: 'Press or Release,Key,Time\nP,t,1751815551976\nR,t,1751815552076\nP,w,1751815552176\nR,w,1751815552276\nP,e,1751815552376\nR,e,1751815552476\nP,e,1751815552576\nR,e,1751815552676\nP,t,1751815552776\nR,t,1751815552876',
+            filename: `t_${TEST_USER_ID}_${TEST_TASK_ID}.csv`,
+            type: 'text/csv'
+        },
+        fb_post: {
+            content: 'This is a test Facebook post content that simulates what a user might write after watching a video. It contains their thoughts and reactions to the content they just viewed.',
+            filename: `f_${TEST_USER_ID}_${TEST_TASK_ID}_raw.txt`,
+            type: 'text/plain'
+        },
+        ig_post: {
+            content: 'Test Instagram post - Users share their thoughts here about the video content in a more casual, visual-oriented platform style.',
+            filename: `i_${TEST_USER_ID}_${TEST_TASK_ID}_raw.txt`,
+            type: 'text/plain'
+        },
+        tw_post: {
+            content: 'Test tweet about the video. Short and concise thoughts fitting Twitter\'s character limit and style.',
+            filename: `t_${TEST_USER_ID}_${TEST_TASK_ID}_raw.txt`,
+            type: 'text/plain'
+        },
+        fb_metadata: {
+            content: JSON.stringify({
+                user_id: TEST_USER_ID,
+                platform_id: "0",
+                task_id: TEST_TASK_ID,
+                start_time: Date.now() - 60000,
+                end_time: Date.now(),
+                duration_ms: 60000,
+                platform: "facebook",
+                is_mobile: false,
+                device_type: "desktop",
+                user_agent: navigator.userAgent,
+                screen_size: "1920x1080"
+            }, null, 2),
+            filename: `f_${TEST_USER_ID}_${TEST_TASK_ID}_metadata.json`,
+            type: 'application/json'
+        },
+        ig_metadata: {
+            content: JSON.stringify({
+                user_id: TEST_USER_ID,
+                platform_id: "1",
+                task_id: TEST_TASK_ID,
+                start_time: Date.now() - 45000,
+                end_time: Date.now(),
+                duration_ms: 45000,
+                platform: "instagram",
+                is_mobile: true,
+                device_type: "mobile",
+                user_agent: navigator.userAgent,
+                screen_size: "390x844"
+            }, null, 2),
+            filename: `i_${TEST_USER_ID}_${TEST_TASK_ID}_metadata.json`,
+            type: 'application/json'
+        },
+        tw_metadata: {
+            content: JSON.stringify({
+                user_id: TEST_USER_ID,
+                platform_id: "2",
+                task_id: TEST_TASK_ID,
+                start_time: Date.now() - 30000,
+                end_time: Date.now(),
+                duration_ms: 30000,
+                platform: "twitter",
+                is_mobile: false,
+                device_type: "desktop",
+                user_agent: navigator.userAgent,
+                screen_size: "1920x1080"
+            }, null, 2),
+            filename: `t_${TEST_USER_ID}_${TEST_TASK_ID}_metadata.json`,
+            type: 'application/json'
+        }
+    };
+    
+    // Local implementation of the server's extractUserIdFromFilename function
+    function extractUserIdFromFilename(filename) {
+        console.log('Extracting user ID from filename:', filename);
+        
+        // Pattern 1: Platform files
+        const platformPattern = /^[fit]_([a-f0-9]{32})_[0-9]+(_raw\.txt|\.csv|_metadata\.json)$/;
+        const platformMatch = filename.match(platformPattern);
+        if (platformMatch) {
+            console.log('Matched platform pattern, user ID:', platformMatch[1]);
+            return platformMatch[1];
+        }
+        
+        // Pattern 2: Direct user ID files
+        const directPattern = /^([a-f0-9]{32})_(consent|demographics|start_study|completion)\.json$/;
+        const directMatch = filename.match(directPattern);
+        if (directMatch) {
+            console.log('Matched direct pattern, user ID:', directMatch[1]);
+            return directMatch[1];
+        }
+        
+        console.log('No user ID pattern matched');
+        return null;
+    }
+    
+    function updateContent() {
+        const type = document.getElementById('testType').value;
+        const testData = sampleContent[type];
+        document.getElementById('content').value = testData.content;
+        
+        // Update filename preview
+        document.getElementById('filenamePreview').innerHTML = 
+            `<strong>Filename:</strong> ${testData.filename}<br>` +
+            `<strong>Content-Type:</strong> ${testData.type}`;
+        
+        // Update debug info
+        updateDebugInfo(testData);
+    }
+    
+    function updateDebugInfo(testData) {
+        const debugEl = document.getElementById('debugInfo');
+        const userId = extractUserIdFromFilename(testData.filename);
+        
+        debugEl.innerHTML = `
+            <div class="debug-item"><strong>Filename:</strong> ${testData.filename}</div>
+            <div class="debug-item"><strong>Content-Type:</strong> ${testData.type}</div>
+            <div class="debug-item"><strong>Content Length:</strong> ${testData.content.length} bytes</div>
+            <div class="debug-item"><strong>Extracted User ID:</strong> ${userId || 'FAILED TO EXTRACT'}</div>
+            <div class="debug-item"><strong>User ID Length:</strong> ${userId ? userId.length : 0} (expected: 32)</div>
+            <div class="debug-item"><strong>User ID Valid Hex:</strong> ${userId ? /^[a-f0-9]{32}$/.test(userId) : false}</div>
+        `;
+        
+        if (!userId) {
+            debugEl.innerHTML += '<div class="debug-item error"><strong>⚠️ Warning:</strong> Failed to extract user ID locally. Upload will likely fail.</div>';
+        }
+    }
+    
+    function validateFilenameLocally() {
+        const type = document.getElementById('testType').value;
+        const testData = sampleContent[type];
+        const resultEl = document.getElementById('result');
+        
+        resultEl.className = 'info';
+        resultEl.textContent = `Testing filename validation locally...\n\n`;
+        resultEl.textContent += `Filename: ${testData.filename}\n\n`;
+        
+        const userId = extractUserIdFromFilename(testData.filename);
+        
+        if (userId) {
+            resultEl.textContent += `✅ Successfully extracted user ID: ${userId}\n`;
+            resultEl.textContent += `User ID length: ${userId.length} characters\n`;
+            resultEl.textContent += `Valid hex format: ${/^[a-f0-9]{32}$/.test(userId) ? 'Yes' : 'No'}\n`;
+        } else {
+            resultEl.className = 'error';
+            resultEl.textContent += `❌ Failed to extract user ID from filename\n\n`;
+            resultEl.textContent += `Debugging patterns:\n`;
+            
+            // Test against platform pattern
+            const platformPattern = /^[fit]_([a-f0-9]{32})_[0-9]+(_raw\.txt|\.csv|_metadata\.json)$/;
+            resultEl.textContent += `Platform pattern test: ${platformPattern.test(testData.filename) ? 'MATCHES' : 'NO MATCH'}\n`;
+            
+            // Test against direct pattern
+            const directPattern = /^([a-f0-9]{32})_(consent|demographics|start_study|completion)\.json$/;
+            resultEl.textContent += `Direct pattern test: ${directPattern.test(testData.filename) ? 'MATCHES' : 'NO MATCH'}\n`;
+        }
+    }
+    
+    function clearResults() {
+        document.getElementById('result').textContent = 'Ready to upload...';
+        document.getElementById('result').className = '';
+    }
+    
+    async function testUpload() {
+        const resultEl = document.getElementById('result');
+        const uploadBtn = document.getElementById('uploadBtn');
+        
+        resultEl.textContent = 'Uploading...';
+        resultEl.className = '';
+        uploadBtn.disabled = true;
+        
+        try {
+            const type = document.getElementById('testType').value;
+            const testData = sampleContent[type];
+            
+            // Get content from textarea (in case user modified it)
+            const content = document.getElementById('content').value;
+            
+            // Create blob with appropriate type
+            const blob = new Blob([content], { type: testData.type });
+            
+            // Create FormData
+            const formData = new FormData();
+            
+            // Append file with correct filename
+            formData.append('file', blob, testData.filename);
+            
+            // Log all details before sending
+            console.group('Upload Request Details');
+            console.log('Filename:', testData.filename);
+            console.log('Content type:', testData.type);
+            console.log('Content length:', content.length);
+            console.log('Blob size:', blob.size);
+            console.log('FormData entries:');
+            for (let pair of formData.entries()) {
+                console.log('  ', pair[0], ':', pair[1]);
+            }
+            console.groupEnd();
+            
+            // Send request
+            const response = await fetch('YOUR_CLOUD_FUNCTION_URL', { // TODO: Replace with your Cloud Function URL
+                method: 'POST',
+                body: formData
+            });
+            
+            // Get response text first (in case it's not JSON)
+            const responseText = await response.text();
+            console.log('Raw response:', responseText);
+            
+            let result;
+            try {
+                result = JSON.parse(responseText);
+            } catch (e) {
+                console.error('Failed to parse response as JSON:', e);
+                result = { error: 'Invalid JSON response', rawResponse: responseText };
+            }
+            
+            // Display formatted result
+            resultEl.textContent = JSON.stringify(result, null, 2);
+            
+            if (result.success) {
+                resultEl.className = 'success';
+                console.log('✅ Upload successful!');
+                console.log('URL:', result.url);
+                console.log('Full response:', result);
+            } else {
+                resultEl.className = 'error';
+                console.error('❌ Upload failed:', result.error || 'Unknown error');
+                console.error('Full response:', result);
+                
+                // Add additional debugging info
+                resultEl.textContent += '\n\n--- Debug Info ---\n';
+                resultEl.textContent += `Filename sent: ${testData.filename}\n`;
+                resultEl.textContent += `Expected user ID: ${TEST_USER_ID}\n`;
+                resultEl.textContent += `HTTP Status: ${response.status} ${response.statusText}\n`;
+            }
+            
+        } catch (error) {
+            console.error('Network or parsing error:', error);
+            resultEl.textContent = `Network/Parsing Error:\n${error.message}\n\nStack:\n${error.stack}`;
+            resultEl.className = 'error';
+        } finally {
+            uploadBtn.disabled = false;
+        }
+    }
+    
+    // Initialize with consent content
+    window.onload = function() {
+        updateContent();
+    };
+    </script>
+</body>
+</html>

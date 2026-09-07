@@ -1,0 +1,24 @@
+{
+  "name": "web-data-collection",
+  "version": "1.0.0",
+  "description": "Web application for collecting typing dynamics data in a simulated social media environment",
+  "homepage": "https://github.com/YOUR_GITHUB_ORG/YOUR_REPO#readme",
+  "bugs": {
+    "url": "https://github.com/YOUR_GITHUB_ORG/YOUR_REPO/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_GITHUB_ORG/YOUR_REPO.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "dependencies": {}
+}
