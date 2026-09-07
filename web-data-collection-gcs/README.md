@@ -44,11 +44,14 @@ web-data-collection-gcs/
 │       ├── instagram-clone/
 │       └── twitter-clone/
 ├── scripts/
-│   └── tasks-controller.js    # Task sequencing and video assignment
+│   ├── tasks-controller.js    # Task sequencing and video assignment
+│   └── build-wasm.sh          # Rebuilds the WASM module (see below)
 ├── utils/
 │   ├── common.js              # Shared config, cookie management, upload logic
 │   └── wasm-keystroke.js      # WASM keystroke capture bindings
 ├── wasm-keystroke-capture/    # Rust/WASM keystroke capture module
+│   ├── src/lib.rs             # Rust source
+│   └── pkg/                   # Build output -- COMMITTED on purpose
 └── styles/
     └── global.css
 ```
@@ -159,6 +162,37 @@ grep -rn "YOUR_" --include="*.js" --include="*.html" --include="*.sh" .
 ```
 
 This should return no results (aside from this README).
+
+## Rebuilding the WASM Keystroke Module
+
+You only need this if you change the Rust source in
+`wasm-keystroke-capture/src/lib.rs`. The prebuilt module is committed, so the app
+runs as-is after cloning.
+
+The build output in `wasm-keystroke-capture/pkg/` **is committed on purpose**. The
+study pages are plain static files with no bundler or CI build step -- the browser
+loads `pkg/keystroke_capture.js` directly -- so participants would hit a broken
+page if `pkg/` were missing from the repo.
+
+To rebuild:
+
+```bash
+# One-time: install the Rust toolchain (https://rustup.rs) and wasm-pack
+cargo install wasm-pack
+
+npm run build:wasm          # or: bash scripts/build-wasm.sh
+git add wasm-keystroke-capture/pkg
+git commit -m "Rebuild WASM module"
+```
+
+**Watch out:** `wasm-pack` writes a `pkg/.gitignore` containing `*` on every build,
+which silently hides the freshly built module from git -- you would commit nothing
+and deploy a stale (or absent) module. `scripts/build-wasm.sh` deletes that file
+after each build. If you run `wasm-pack` directly, delete it yourself and verify:
+
+```bash
+git status --short wasm-keystroke-capture/pkg/
+```
 
 ## Study Flow
 

@@ -9,6 +9,12 @@ build/
 wasm-keystroke-capture/target/
 wasm-keystroke-capture/Cargo.lock
 
+# NOTE: wasm-keystroke-capture/pkg/ is intentionally NOT ignored. The study
+# pages are served as static files and load pkg/keystroke_capture.js directly
+# in the browser, so the build output must be committed. wasm-pack regenerates
+# a pkg/.gitignore containing "*" on every build -- scripts/build-wasm.sh
+# deletes it. Never commit that file back.
+
 # OS files
 .DS_Store
 Thumbs.db
