@@ -1,7 +1,7 @@
 # TODO — identity-linkage-ICTAI-2026
 
 > Created: 2026-09-07
-> Updated: 2026-09-07
+> Updated: 2026-09-20
 
 Cleanup items for this repository. The `web-data-collection-gcs/` subdirectory was
 imported as a content-only snapshot (no prior commit history) from the
@@ -25,25 +25,54 @@ whether to restore the real value or keep the placeholder.
 their own infrastructure. Never restore our real GCP project ID or bucket name.
 
 - [ ] **Restore author/maintainer identity**
-  - `web-data-collection-gcs/package.json` — `"author": ""` is empty; `homepage`,
-    `bugs.url`, and `repository.url` all point at `YOUR_GITHUB_ORG/YOUR_REPO`.
-    These are repo identity, not deployment config → set to the real
-    `FakeProfileDetection/identity-linkage-ICTAI-2026`.
-  - `web-data-collection-gcs/wasm-keystroke-capture/Cargo.toml` — `authors = ["Your Name"]`
-  - `web-data-collection-gcs/wasm-keystroke-capture/pkg/package.json` —
-    `collaborators: ["Your Name"]`. This is **generated** by wasm-pack from
-    `Cargo.toml`, so fix `Cargo.toml` first, then run `npm run build:wasm` and commit
-    the regenerated output. Do not hand-edit it.
+  - [x] `web-data-collection-gcs/package.json` — `homepage`, `bugs.url`, and
+    `repository.url` now point at `FakeProfileDetection/identity-linkage-ICTAI-2026`
+    (2026-09-20). Confirmed these were *not* adopter-facing placeholders: the README
+    never mentions them, they have no `config.env` key, and `configure.sh` only
+    rewrites `*.js/*.html/*.sh/*.py`, so no setup step ever filled them in. Also added
+    `repository.directory`, since the package sits in a subdirectory of the repo.
+  - [x] `web-data-collection-gcs/package.json` — `author` set to
+    `Alvin Kuruvilla <alvineasokuruvilla@gmail.com>` (2026-09-20). Code maintainer, not
+    paper authorship; the full author list belongs in `CITATION.cff` and the README.
+  - [x] `web-data-collection-gcs/wasm-keystroke-capture/Cargo.toml` —
+    `authors = ["Lori Pickering"]` (2026-09-20), who wrote the Rust. Name only; her
+    commit email is in the git history if we decide the manifest should carry it.
+  - [x] `web-data-collection-gcs/wasm-keystroke-capture/pkg/package.json` —
+    regenerated via `npm run build:wasm`, `collaborators` now reads `Lori Pickering`
+    (2026-09-20). The rebuild also cleared the leaked build path (see Priority 4).
+    wasm-bindgen went 0.2.100 → 0.2.128 in the process and rewrote the JS glue
+    wholesale, so the regenerated output was checked rather than assumed: both init
+    paths and all eight public methods, with the pre-rebuild build run through the
+    same checks for comparison. Identical results. `lib.rs` and the pages are
+    untouched.
 - [ ] **Researcher contact email** — the blind-review address
   `fpd.research.2026@gmail.com` was replaced by a `RESEARCHER_EMAIL` config variable
   (`config.env`). Confirm nothing still hardcodes the anonymous address, and decide
   the real contact address for the published artifact.
-- [ ] **Informed consent document** — `pages/hosting/Informed Consent.md` / `.pdf` is
-  currently a generic template with every identifying field replaced by the literal
-  string `"Your Information"` (study title, researcher, affiliation, IRB contact).
-  Decide: publish the *real* IRB-approved consent form now that review is over, or
-  keep the template and document that adopters must supply their own. If publishing
-  the real one, regenerate the PDF from the `.md`.
+  - [x] Scan is clean (2026-09-20): `git grep fpd.research.2026` matches nothing
+    outside this file. `RESEARCHER_EMAIL` survives as a live `configure.sh` token in
+    `survey-code.html` (lines 384, 423, 589, 599) and as a blank key in `config.env`.
+  - [ ] Decide the published contact address, and whether it ships as a `config.env`
+    default. Note that a non-empty value there is baked into an adopter's pages by
+    `configure.sh`, so our address would become theirs unless they clear it.
+- [x] **Informed consent document** (2026-09-20) — stays a template. Decided against
+  publishing the real IRB-approved form: an adopter running this is doing their own
+  research under their own approval, and a form that looks reusable invites someone to
+  reuse an approval that does not cover them.
+  - The four uniform `"Your Information"` placeholders became self-describing
+    `[FILL IN: ...]` markers, greppable so an adopter can confirm none remain.
+  - Added a template notice at the top stating the form is unusable as-is and that
+    the authors' IRB approval does not extend to an adopter's deployment.
+  - Added **Section 9, participant rights contact** — the IRB or ethics board, with
+    protocol number. This is new, not a restored placeholder: most boards require a
+    rights contact distinct from the study contact, and Section 8 conflated them.
+    Section 8 was last, so nothing was renumbered.
+  - `README.md` rewritten to match, including that `configure.sh` cannot reach this
+    file (it only scans `.js/.html/.sh/.py`), so the fields are hand-edited.
+  - PDF regenerated with `npx md-to-pdf` — `consent.html:153` links the PDF, not the
+    `.md`, so a stale PDF would have shown participants the old text. Verified with
+    `pdftotext`: 7 `FILL IN` markers, notice and Section 9 present, signature block
+    intact.
 - [ ] **Study identity defaults** — `STUDY_NAME`, `STUDY_DESCRIPTION`,
   `INSTITUTION_NAME` in `config.env` are blank. Consider shipping the real values used
   in the paper's data collection as documented defaults, so the artifact matches what
@@ -103,6 +132,19 @@ flow, so removing them is safe.
   A broader sweep for `iam.gserviceaccount.com` / `cloudfunctions.net` returns only
   `YOUR_*` placeholders and `my-research-project-123456` doc examples — expected, not
   leaks.
+
+  **That scan has a blind spot: `git grep -I` skips binaries.** The committed
+  `wasm-keystroke-capture/pkg/keystroke_capture_bg.wasm` embedded the build machine's
+  home directory in panic-message paths and served it to every participant. Found and
+  fixed 2026-09-20. Re-run this against any committed binary, not just the text scan
+  above:
+  ```bash
+  strings web-data-collection-gcs/wasm-keystroke-capture/pkg/keystroke_capture_bg.wasm \
+    | grep -E "/Users/|/home/"
+  ```
+  `scripts/build-wasm.sh` now passes `--remap-path-prefix` for all three path sources
+  and fails the build if any survive, so a future rebuild cannot silently reintroduce
+  it. A plain `wasm-pack build` bypasses that and re-leaks whoever ran it.
 - [ ] **Re-scan for participant data.** Confirm no collected keystroke files, real
   participant/user IDs, or survey codes are committed anywhere.
 - [ ] **End-to-end test from a clean clone** — run through `config.env` +

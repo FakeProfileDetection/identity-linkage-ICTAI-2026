@@ -1,0 +1,4 @@
+# Scratch space for intermediate results and comparison artifacts.
+tmp/
+
+.DS_Store
