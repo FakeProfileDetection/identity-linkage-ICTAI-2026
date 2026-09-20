@@ -88,11 +88,31 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
 - [ ] **Add a LICENSE file.** There is none. `package.json` says `"license": "ISC"`
   but `README.md` says "provided for academic research purposes" — these contradict
   each other. Pick one and make both agree.
-- [ ] **Credit the Twitter clone.** `README.md` Credits lists the Facebook and
-  Instagram clones but omits `pages/fake_pages/twitter-clone/`, which has no upstream
-  attribution or license file anywhere in the repo. Find its origin and credit it, or
-  confirm it was written in-house. The Instagram clone ships an MIT LICENSE
-  (Leonardo Costa, 2020); check the Facebook clone's terms too.
+- [x] **Credit the Twitter clone** (2026-09-20) — traced and credited in `README.md`.
+  Source: [`somanath-goudar/html-css-projects`](https://github.com/somanath-goudar/html-css-projects/tree/main/twitter-clone),
+  a tutorial series of HTML/CSS clones, itself a static port of the React
+  `CleverProgrammers/twitter-clone` (which is where the `post__*` / `widgets__*` class
+  names come from). Identified from the `@somanathg` handle left in our sample posts,
+  then confirmed by diff: our `index.html` differs only by Prettier reformatting plus
+  the `<textarea id="input_value">` swap and button states. `script.js` is ours.
+
+**Licensing of the clones is unresolved and blocks publication:**
+
+- [ ] **Twitter clone has no license.** `somanath-goudar/html-css-projects` carries no
+  LICENSE, and neither does the `CleverProgrammers/twitter-clone` it derives from. No
+  license means no redistribution right — shipping it in a public artifact is not
+  covered by anything. Options: ask Somanath Goudar to license it (he has a public
+  GitHub and the tutorial series is promotional, so a permissive grant is plausible),
+  replace the page with markup we write, or drop the Twitter platform from the
+  published artifact. The last would diverge from the paper's method.
+- [ ] **The Facebook clone's upstream has been taken down.**
+  `KashanAdnan/Facebook-Clone`, which the Credits section links, now returns
+  `Repository access blocked — reason: trademark` (blocked 2025-06-20). The link in
+  our README is dead and the terms we inherited are unknowable. `pages/fake_pages/
+  Facebook-Clone/README.md` is the only artifact of it we hold. Decide whether
+  shipping it is defensible given a trademark takedown of the source.
+- [x] Instagram clone is MIT (Leonardo Costa, 2020), LICENSE shipped at
+  `pages/fake_pages/instagram-clone/LICENSE`. Now linked from Credits.
 - [ ] **Add citation metadata** — `CITATION.cff` and/or a BibTeX block in the README
   pointing at the ICTAI 2026 paper, so the artifact is citable. Decide the contact
   address that goes on it (moved here from Priority 1): this is the address for

@@ -299,6 +299,19 @@ This project uses modified versions of:
 
 - [Facebook Clone](https://github.com/KashanAdnan/Facebook-Clone) by Kashan Adnan
 - [Instagram Clone](https://github.com/leocosta1/instagram-clone) by Leo Costa
+  ([MIT](pages/fake_pages/instagram-clone/LICENSE))
+- [Twitter Clone](https://github.com/somanath-goudar/html-css-projects/tree/main/twitter-clone)
+  by Somanath Goudar, from his HTML/CSS clones tutorial series. Our copy keeps his
+  markup and stylesheet; the changes are a `<textarea>` in place of the single-line
+  `<input>` so posts can run to several lines, the tweet-button states, and
+  `script.js`, which is ours. The sample posts still carry his `@somanathg` handle.
+  That project is in turn a static port of the React
+  [Clever Programmer Twitter clone](https://github.com/CleverProgrammers/twitter-clone),
+  which the shared `post__*` and `widgets__*` class names come from.
+
+Neither the Twitter clone nor the Clever Programmer project it derives from carries a
+license, so neither grants redistribution rights. Resolve before publishing — see
+`TODO.md`.
 
 ## License
 
