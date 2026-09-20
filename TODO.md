@@ -54,22 +54,30 @@ De-anonymization (former Priority 1) is done — see Done.
 
 ## Priority 2 — Verification before publishing
 
-- [ ] **Re-scan for leaked infrastructure and PII.** Text scan was clean 2026-09-07;
-  re-run before publishing and after any edit restoring real values.
+- [x] **Re-scan for leaked infrastructure and PII** — clean 2026-09-20. Re-run before
+  publishing and after any edit that restores a real value.
   ```bash
   # Matches only the real scrubbed values, so any hit is a genuine leak.
   git grep -n -I -E \
     "fake-profile-detection-460117|fake-profile-detection-eda-bucket|web-data-collection-sa@|irentala|myharrisburgu" \
     -- . ':!TODO.md'
+
+  # git grep -I skips binaries, so sweep every tracked binary separately. The
+  # committed .wasm was leaking a build-machine home directory until 2026-09-20.
+  git ls-files -z | xargs -0 file --mime | grep -v "text/" | cut -d: -f1 \
+    | xargs -I{} sh -c 'strings "{}" | grep -oE "(/Users/|/home/)[^ ]*" | sed "s|^|{}: |"'
   ```
-  `git grep -I` skips binaries, so scan those separately — the committed `.wasm` was
-  leaking a home directory until 2026-09-20:
-  ```bash
-  strings web-data-collection-gcs/wasm-keystroke-capture/pkg/keystroke_capture_bg.wasm \
-    | grep -E "/Users/|/home/"
-  ```
-- [ ] **Re-scan for participant data.** No keystroke files, real participant IDs, or
-  survey codes committed anywhere.
+- [x] **Re-scan for participant data** — clean 2026-09-20. Two separate questions,
+  since `datasets/clean-data` is committed on purpose:
+  - Nothing stray in `web-data-collection-gcs/`: no loose CSVs, `_raw.txt`,
+    `_metadata.json`, consent or demographics files, no 32-hex IDs outside the
+    documented `a1b2c3…` sample in `test-upload.html`, no survey codes.
+  - The dataset itself holds only keystroke timings, typed text, keypairs, and
+    aggregate features — no demographics, consent, or survey records, which stay
+    wherever the demographics mapping lives. IDs are
+    `crypto.getRandomValues` over 16 bytes (`utils/common.js:7`), not derived from
+    email, so they do not link back on their own. The 1098 text files carry no email
+    addresses, phone numbers, or self-identifying phrases.
 - [ ] **End-to-end test from a clean clone** — `config.env` + `configure.sh`, deploy,
   one full participant run.
 - [ ] **Video fair-use review.** Three copyrighted clips in `pages/hosting/videos/`
