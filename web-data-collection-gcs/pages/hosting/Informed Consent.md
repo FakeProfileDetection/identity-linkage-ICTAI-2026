@@ -6,11 +6,21 @@ geometry: margin=1in
 
 # Informed Consent
 
-**Study Title:** Your Information
+> **TEMPLATE — not a usable consent form.** Every `[FILL IN: ...]` marker below must
+> be replaced with your own study's details before you show this to anyone, and the
+> study it describes must be covered by your own institution's IRB approval. The
+> approval obtained by the authors of this software does not extend to your use of
+> it. Delete this notice once the form is complete.
+>
+> To check nothing was missed:
+> `grep -n "FILL IN" "pages/hosting/Informed Consent.md"`
+
+**Study Title:** [FILL IN: your study's official title, as approved by your IRB]
 
 ## Researcher, Affiliation, and Contact Information
 
-Your Information
+[FILL IN: principal investigator name(s), institutional affiliation, and a contact
+email participants can use]
 
 ---
 
@@ -76,11 +86,22 @@ study at any point in time.
 
 ## 7. Will you receive compensation for your participation in this study?
 
-Your Information
+[FILL IN: what participants receive, if anything — payment, course credit, a prize
+draw — and the conditions for receiving it. If there is no compensation, say so.]
 
 ## 8. Study contact for questions about the study or to report a problem
 
-Your Information
+[FILL IN: name and contact details of the researcher a participant should reach
+about the study itself]
+
+## 9. Who can you contact about your rights as a research participant?
+
+Questions about the study go to the researcher named in Section 8. Questions or
+concerns about your rights as a research participant, or a complaint you would
+rather not raise with the research team, go to the board that approved this study:
+
+[FILL IN: your IRB or research ethics board — name, protocol or approval number,
+phone, and email]
 
 ---
 

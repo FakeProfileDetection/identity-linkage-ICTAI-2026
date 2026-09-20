@@ -256,24 +256,38 @@ inspirational, shocking, political) to maximize variance in typing behavior.
 ### Informed Consent Form
 
 A template informed consent form is provided at
-`pages/hosting/Informed Consent.pdf`. Sections marked **"Your Information"**
-must be filled in with your own study details before use:
+`pages/hosting/Informed Consent.pdf`. It is a template, not a consent form you can
+use — running this study is your own research, under your own institution's
+approval. **Before recruiting anyone you need your own IRB or ethics-board approval
+covering it.** The approval the authors obtained for the study in the paper does not
+extend to your deployment, and nothing in this repository substitutes for it.
 
-- **Study Title** — your study's official title
+Every field marked `[FILL IN: ...]` must be replaced with your own details:
+
+- **Study Title** — your study's official title, as approved by your IRB
 - **Researcher, Affiliation, and Contact Information** — PI names, emails,
   institutional affiliations
-- **Compensation** (Section 7) — how participants will be compensated
-- **Study Contact** (Section 8) — who to contact with questions, including
-  your IRB office email
+- **Compensation** (Section 7) — what participants receive, if anything
+- **Study Contact** (Section 8) — who to contact about the study itself
+- **Participant Rights Contact** (Section 9) — your IRB or ethics board: name,
+  protocol number, phone, and email
+
+`configure.sh` does not touch this file — it only rewrites `.js`, `.html`, `.sh`, and
+`.py` — so these are edited by hand.
 
 **To customize the template:**
 
 1. Edit the markdown source at `pages/hosting/Informed Consent.md`
-2. Regenerate the PDF:
+2. Confirm nothing was missed:
+   ```bash
+   grep -n "FILL IN" "pages/hosting/Informed Consent.md"
+   ```
+3. Delete the template notice at the top of the file
+4. Regenerate the PDF:
    ```bash
    npx md-to-pdf "pages/hosting/Informed Consent.md"
    ```
-3. The generated PDF will replace the existing one in the same directory
+5. The generated PDF will replace the existing one in the same directory
 
 Alternatively, replace `Informed Consent.pdf` entirely with your own
 IRB-approved consent form. The `consent.html` page links to this file by
