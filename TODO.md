@@ -98,13 +98,24 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
 
 **Licensing of the clones is unresolved and blocks publication:**
 
-- [ ] **Twitter clone has no license.** `somanath-goudar/html-css-projects` carries no
-  LICENSE, and neither does the `CleverProgrammers/twitter-clone` it derives from. No
-  license means no redistribution right — shipping it in a public artifact is not
-  covered by anything. Options: ask Somanath Goudar to license it (he has a public
-  GitHub and the tutorial series is promotional, so a permissive grant is plausible),
-  replace the page with markup we write, or drop the Twitter platform from the
-  published artifact. The last would diverge from the paper's method.
+- [x] **Twitter clone has no license — shipping it anyway** (2026-09-20).
+  `somanath-goudar/html-css-projects` carries no LICENSE, and neither does the
+  `CleverProgrammers/twitter-clone` it derives from, so strictly there is no
+  redistribution right. Dropping the platform was rejected: the paper's method is
+  three platforms, and an artifact missing one no longer matches what the paper
+  describes.
+
+  Accepted with credit rather than resolved. The exposure is small in practice — a
+  359-star promotional tutorial repo, reused non-commercially with attribution — but
+  small is not zero, and it is a risk decision, not permission.
+
+  Still worth doing, and cheap, if anyone has five minutes: **ask him.** He is not
+  gone — his GitHub profile updated 2026-09-09, and he has answered issues on this
+  repo personally as owner. It is the repo that is dormant (last push 2024-01-28,
+  issue #17 open and untouched since 2025-12-13). Nobody has ever raised licensing
+  with him. A grant would settle this permanently; silence leaves us exactly here.
+  Rewriting the ~190 lines of markup ourselves remains the fallback that removes the
+  question entirely.
 - [ ] **The Facebook clone's upstream has been taken down.**
   `KashanAdnan/Facebook-Clone`, which the Credits section links, now returns
   `Repository access blocked — reason: trademark` (blocked 2025-06-20). The link in

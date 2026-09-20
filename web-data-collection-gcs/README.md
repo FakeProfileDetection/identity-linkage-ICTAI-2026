@@ -309,9 +309,12 @@ This project uses modified versions of:
   [Clever Programmer Twitter clone](https://github.com/CleverProgrammers/twitter-clone),
   which the shared `post__*` and `widgets__*` class names come from.
 
-Neither the Twitter clone nor the Clever Programmer project it derives from carries a
-license, so neither grants redistribution rights. Resolve before publishing — see
-`TODO.md`.
+Neither the Twitter clone nor the Clever Programmer project it derives from publishes
+a license, so neither grants redistribution rights. It is included here with
+attribution, unmodified in substance, for non-commercial academic research. If you
+reuse this repository, that page carries the same unresolved status for you as it
+does for us — clear it with the author, or replace the markup, before using it for
+anything we have not.
 
 ## License
 
