@@ -23,11 +23,35 @@ if ! command -v wasm-pack >/dev/null 2>&1; then
   exit 1
 fi
 
+# Rust bakes source paths into panic messages, and in a release build those are the
+# build machine's own paths — including the builder's home directory, which then
+# ships to every participant's browser. Until 2026-09-20 the committed .wasm carried
+# one. `git grep -I` skips binaries, so no text scan of this repo catches it.
+#
+# Three prefixes carry a real path: the dependency registry, the crate itself, and
+# the toolchain's copy of the Rust standard library (reached through panics in std,
+# e.g. a Vec growth failure). Remapping all three makes the output independent of
+# who builds it.
+REMAP_FLAGS=(
+  "--remap-path-prefix=${CARGO_HOME:-$HOME/.cargo}/registry=/cargo-registry"
+  "--remap-path-prefix=${CRATE_DIR}=/keystroke-capture"
+  "--remap-path-prefix=$(rustc --print sysroot)=/rust-toolchain"
+)
+
 echo "Building keystroke-capture WASM module (target: web)..."
-wasm-pack build "$CRATE_DIR" --target web --release
+RUSTFLAGS="${RUSTFLAGS:-} ${REMAP_FLAGS[*]}" \
+  wasm-pack build "$CRATE_DIR" --target web --release
 
 # Remove the "*" .gitignore wasm-pack regenerates, so pkg/ stays tracked.
 rm -f "$CRATE_DIR/pkg/.gitignore"
+
+# Fail loudly rather than commit another leaked path: any /Users/ or /home/ left in
+# the binary means a prefix escaped the remap above and needs a new entry.
+if strings "$CRATE_DIR/pkg/keystroke_capture_bg.wasm" | grep -qE "/Users/|/home/"; then
+  echo "Error: build-machine paths remain in the .wasm after remapping:" >&2
+  strings "$CRATE_DIR/pkg/keystroke_capture_bg.wasm" | grep -oE "(/Users/|/home/)[^ ]*" | sort -u >&2
+  exit 1
+fi
 
 echo
 echo "Build complete. Output in wasm-keystroke-capture/pkg/"
