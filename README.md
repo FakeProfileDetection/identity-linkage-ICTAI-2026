@@ -10,7 +10,21 @@ The dataset is 61 participants and 1,098 paired text–keystroke observations, c
 on replicas of Facebook, Instagram, and X across three discussion topics and two
 sessions — 18 observations per participant.
 
-To cite this work, see `CITATION.cff`.
+## Citation
+
+Use the "Cite this repository" button in the sidebar, which reads
+[`CITATION.cff`](CITATION.cff), or:
+
+```bibtex
+@inproceedings{kuruvilla2026identity,
+  title     = {Context-Robust Identity Linkage in Social Media via Keystroke Dynamics},
+  author    = {Kuruvilla, Alvin and Pickering, Lori and Rentala, Indrani and Kumar, Rajesh},
+  booktitle = {Proceedings of the IEEE International Conference on Tools with Artificial Intelligence (ICTAI)},
+  year      = {2026}
+}
+```
+
+Pages and DOI will be added once the proceedings are published.
 
 ## Layout
 

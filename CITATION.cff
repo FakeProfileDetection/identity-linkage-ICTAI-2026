@@ -1,5 +1,8 @@
 cff-version: 1.2.0
-message: "If you use this software or the dataset it collected, please cite the paper below."
+message: >-
+  This software and dataset accompany the paper "Context-Robust Identity
+  Linkage in Social Media via Keystroke Dynamics", published at IEEE ICTAI
+  2026. If you use either, please cite the paper.
 title: "Context-Robust Identity Linkage in Social Media via Keystroke Dynamics"
 type: software
 license: MIT

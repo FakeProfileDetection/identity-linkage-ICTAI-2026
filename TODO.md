@@ -15,9 +15,13 @@ De-anonymization (former Priority 1) is done — see Done.
 ## Priority 1 — Artifact release readiness
 
 - [x] **Add a LICENSE file** (2026-09-20) — MIT at the repo root, copyright the four
-  paper authors. `package.json` moved ISC → MIT and `CITATION.cff` carries it. The
-  LICENSE holds the unmodified MIT text so GitHub's license detection works; the
-  carve-outs live in `web-data-collection-gcs/README.md` instead.
+  paper authors. `package.json` moved ISC → MIT and `CITATION.cff` carries it.
+  LICENSE now also carries a scope section naming the directories it does not cover,
+  each of which has its own `LICENSE` or `NOTICE.md`.
+  - [ ] Verify GitHub still detects MIT after pushing — the scope section adds text,
+    and detection is a similarity match against the bare license:
+    `gh api repos/FakeProfileDetection/identity-linkage-ICTAI-2026/license --jq '.license.spdx_id'`
+    If that is not `MIT`, move the scope section to a root `NOTICE.md`.
 - [ ] **License the dataset.** `datasets/clean-data` (79 MB, 2228 files) is
   participant data and sits under the root LICENSE without being covered by it — the
   README says so, but nothing states what *does* cover it. Human-subjects data
@@ -44,14 +48,14 @@ De-anonymization (former Priority 1) is done — see Done.
   - [ ] Three fields left out rather than invented: `doi` (none assigned yet),
     `license` (blocked on the LICENSE decision above), and the conference edition
     number, location, and dates. Fill them in when known.
-  - [ ] Add a BibTeX block to the repo-root README when that gets written —
-    `uvx cffconvert -f bibtex -i CITATION.cff` generates it, but needs a real cite key
-    and the conference fields above.
+  - [x] BibTeX block added to the repo-root README (2026-09-20). Written by hand as
+    `@inproceedings`; `cffconvert -f bibtex` emits `@misc` with a placeholder key and
+    drops the venue, so it is not usable for a conference paper.
 - [x] **Repo-root README** (2026-09-20) — paper summary, layout, and the licensing
   scope. Counts cross-checked against the abstract: 61 participants, 1098 keystroke
   traces, 1098 texts.
   - [ ] Still to add: the `STUDY_NAME`/`INSTITUTION_NAME` values our own collection
-    ran under, and a BibTeX block once the conference fields are known.
+    ran under.
 - [x] **Link to the dataset** — obsolete (2026-09-20). Written when the data was
   expected to live in an `fpd-dataset` sibling repo; it is in this one, under
   `datasets/clean-data`. Nothing to link. It does still need a license (above) and a
