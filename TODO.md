@@ -80,9 +80,22 @@ De-anonymization (former Priority 1) is done — see Done.
     addresses, phone numbers, or self-identifying phrases.
 - [ ] **End-to-end test from a clean clone** — `config.env` + `configure.sh`, deploy,
   one full participant run.
-- [ ] **Video fair-use review.** Three copyrighted clips in `pages/hosting/videos/`
-  (~12.4 MB) ship under a fair-use notice. That call was made for an anonymous repo;
-  re-confirm it for a public, attributed one.
+- [x] **Video fair-use review** (2026-09-20) — keeping all three clips, resting on
+  fair use alone. The old framing ("re-confirm now the repo is attributed") was
+  wrong: anonymity is not a fair-use factor. The gap was that the justification
+  argued for *using* the clips as stimuli and never addressed *redistributing* them
+  by shipping the files. It now does.
+
+  Dropped the claim that the Oval Office clip is "Public domain / C-SPAN". C-SPAN
+  puts only House and Senate floor proceedings in the public domain; other federal
+  government events are theirs, licensed for non-commercial use with attribution,
+  where attribution means keeping their on-screen logo. Frames at 30s and 90s show
+  no logo and the file is downscaled to 480x270, so the clip's distributing outlet
+  cannot be established and the condition was not met. Fair use carries the other
+  two clips regardless, and now carries this one too.
+- [ ] **Deposit the artifact on Zenodo** for a permanent DOI. A DMCA notice against
+  the repo is the realistic risk to the clips, and it would break the URL printed in
+  the paper. Also settles the dataset link below.
 
 ---
 

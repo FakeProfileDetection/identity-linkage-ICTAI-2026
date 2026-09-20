@@ -215,18 +215,28 @@ The video clips in `pages/hosting/videos/` are used as emotional stimuli to
 elicit typed responses from participants. They are included in this repository
 under fair use for non-commercial academic research.
 
-| Video | Copyright Holder | Source | Notes |
+| Video | Copyright Holder | Length | Notes |
 |-------|-----------------|--------|-------|
-| Coach Carter — "Our Deepest Fear" (2005) | Paramount Pictures | [Movieclips (YouTube)](https://www.youtube.com/results?search_query=coach+carter+our+deepest+fear+movieclips) | Scripted film clip |
-| Will Smith / Chris Rock — 2022 Oscars | Academy of Motion Picture Arts and Sciences / ABC (Disney) | News broadcast footage | Live event recording |
-| Trump, Vance & Zelenskyy — Oval Office (2025) | Public domain / C-SPAN | [C-SPAN](https://www.c-span.org/) | U.S. government event; C-SPAN permits non-commercial use with attribution |
+| Coach Carter — "Our Deepest Fear" (2005) | Paramount Pictures | 2m29s | Scripted film clip, ~1.8% of a 136-minute feature |
+| Will Smith / Chris Rock — 2022 Oscars | Academy of Motion Picture Arts and Sciences / ABC (Disney) | 1m23s | Live event recording, excerpted from a ~3.5-hour broadcast |
+| Trump, Vance & Zelenskyy — Oval Office (2025) | Press pool; distributing outlet not established | 2m02s | Federal government event, excerpted from a ~50-minute meeting |
 
-**Fair use justification:** These clips are used as standardized emotional
-stimuli in IRB-approved academic research on keystroke biometrics. The use is
+All three are low-resolution excerpts (640x360, 640x360, 480x270).
+
+**Fair use justification:** These clips are used as standardized emotional stimuli
+in IRB-approved academic research on keystroke biometrics. The use is
 non-commercial, transformative in purpose (scientific measurement, not
-entertainment), and does not substitute for the original works. This practice
-is consistent with established behavioral research methodology (see Gilman et
-al., *Behavior Research Methods*, 2017).
+entertainment), and does not substitute for the original works — each is a short,
+low-resolution excerpt of a much longer work. This practice is consistent with
+established behavioral research methodology (see Gilman et al., *Behavior Research
+Methods*, 2017).
+
+Redistributing the clips in this repository is a separate act from using them as
+stimuli, and rests on the same grounds: the excerpts are short, the resolution is
+reduced, and the purpose of shipping them is reproducibility — the study is not
+replicable without the exact stimuli. We claim no license to them beyond fair use.
+If you would rather not redistribute copyrighted material yourself, substitute your
+own clips; see [Replacing Videos](#replacing-videos).
 
 **If you are a rights holder** and believe this use does not qualify as fair
 use, please open an issue on this repository and we will address your concern
