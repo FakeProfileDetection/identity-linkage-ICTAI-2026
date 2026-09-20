@@ -47,8 +47,10 @@ De-anonymization (former Priority 1) is done — see Done.
 - [ ] **Repo-root README.** Empty. Should cover the paper, the repo layout, how
   `web-data-collection-gcs/` relates to the analysis code and dataset, and the
   `STUDY_NAME`/`INSTITUTION_NAME` values our own collection ran under.
-- [ ] **Link to the dataset.** `fpd-dataset` sibling repo, once its public location is
-  settled.
+- [x] **Link to the dataset** — obsolete (2026-09-20). Written when the data was
+  expected to live in an `fpd-dataset` sibling repo; it is in this one, under
+  `datasets/clean-data`. Nothing to link. It does still need a license (above) and a
+  description in the root README (below).
 
 ---
 
@@ -95,7 +97,7 @@ De-anonymization (former Priority 1) is done — see Done.
   two clips regardless, and now carries this one too.
 - [ ] **Deposit the artifact on Zenodo** for a permanent DOI. A DMCA notice against
   the repo is the realistic risk to the clips, and it would break the URL printed in
-  the paper. Also settles the dataset link below.
+  the paper.
 
 ---
 
