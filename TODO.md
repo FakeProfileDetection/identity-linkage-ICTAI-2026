@@ -33,7 +33,10 @@ De-anonymization (former Priority 1) is done — see Done.
   [somanath-goudar/html-css-projects#20](https://github.com/somanath-goudar/html-css-projects/issues/20)
   (2026-09-20, repo dormant since 2024, don't wait on it). If he grants one: add to
   Credits, drop the caveat paragraph from `web-data-collection-gcs/README.md`.
-  Fallback if he never replies: rewrite the ~190 lines of markup ourselves.
+  Fallback if he never replies: rewrite the ~190 lines of markup ourselves — which is
+  the only thing that fully clears it anyway, since he can license only his own
+  contribution and his source, `CleverProgrammers/twitter-clone`, is likewise
+  unlicensed.
 - [x] **Add citation metadata** (2026-09-20) — `CITATION.cff` at the repo root,
   validated against CFF 1.2.0 with `cffconvert`. Author entries carry the paper's
   addresses; `contact` is Alvin's personal one, since the address on the paper is a
@@ -44,9 +47,11 @@ De-anonymization (former Priority 1) is done — see Done.
   - [ ] Add a BibTeX block to the repo-root README when that gets written —
     `uvx cffconvert -f bibtex -i CITATION.cff` generates it, but needs a real cite key
     and the conference fields above.
-- [ ] **Repo-root README.** Empty. Should cover the paper, the repo layout, how
-  `web-data-collection-gcs/` relates to the analysis code and dataset, and the
-  `STUDY_NAME`/`INSTITUTION_NAME` values our own collection ran under.
+- [x] **Repo-root README** (2026-09-20) — paper summary, layout, and the licensing
+  scope. Counts cross-checked against the abstract: 61 participants, 1098 keystroke
+  traces, 1098 texts.
+  - [ ] Still to add: the `STUDY_NAME`/`INSTITUTION_NAME` values our own collection
+    ran under, and a BibTeX block once the conference fields are known.
 - [x] **Link to the dataset** — obsolete (2026-09-20). Written when the data was
   expected to live in an `fpd-dataset` sibling repo; it is in this one, under
   `datasets/clean-data`. Nothing to link. It does still need a license (above) and a
