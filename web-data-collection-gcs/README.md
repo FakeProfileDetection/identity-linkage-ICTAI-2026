@@ -321,23 +321,18 @@ This project uses modified versions of:
   We changed the `<input>` to a `<textarea>` for multi-line posts and wrote
   `script.js`.
 
-Neither the Twitter clone nor the project it derives from publishes a license, so
-neither grants redistribution rights. It is included with attribution for
-non-commercial academic research. If you reuse this repository, clear that page with
-the author or replace the markup first.
-
 ## License
 
-MIT, per `LICENSE` at the repository root.
+MIT, per `LICENSE` at the repository root, which covers the code we wrote.
 
-That covers the code we wrote. Four things in this repository are not ours to
-license and are **not** covered by it:
+Each directory holding material we do not own carries its own file stating where it
+came from and what we claim, which is nothing beyond our own modifications:
 
-- **`pages/hosting/videos/`** — three copyrighted clips, included under a fair-use
-  claim. See [Video Copyright and Licensing](#video-copyright-and-licensing).
-- **`pages/fake_pages/twitter-clone/`** — no license from upstream. See Credits.
-- **`pages/fake_pages/Facebook-Clone/`** — upstream terms unknown; the source repo
-  has been taken down. See Credits.
-- **`datasets/`** (repository root) — participant data, licensed separately.
+- [`pages/fake_pages/Facebook-Clone/NOTICE.md`](pages/fake_pages/Facebook-Clone/NOTICE.md)
+- [`pages/fake_pages/twitter-clone/NOTICE.md`](pages/fake_pages/twitter-clone/NOTICE.md)
+- [`pages/fake_pages/instagram-clone/LICENSE`](pages/fake_pages/instagram-clone/LICENSE) — MIT, from upstream
+- [`pages/hosting/videos/NOTICE.md`](pages/hosting/videos/NOTICE.md) — see also
+  [Video Copyright and Licensing](#video-copyright-and-licensing)
 
-`pages/fake_pages/instagram-clone/` is MIT from upstream and ships its own LICENSE.
+`datasets/` at the repository root is participant data. Its terms are not settled
+yet; until they are, treat it as all rights reserved.

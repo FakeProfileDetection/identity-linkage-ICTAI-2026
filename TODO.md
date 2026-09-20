@@ -45,9 +45,8 @@ De-anonymization (former Priority 1) is done — see Done.
   validated against CFF 1.2.0 with `cffconvert`. Author entries carry the paper's
   addresses; `contact` is Alvin's personal one, since the address on the paper is a
   student account.
-  - [ ] Three fields left out rather than invented: `doi` (none assigned yet),
-    `license` (blocked on the LICENSE decision above), and the conference edition
-    number, location, and dates. Fill them in when known.
+  - [ ] Two fields left out rather than invented: `doi` (none assigned yet) and the
+    conference edition number, location, and dates. Fill them in when known.
   - [x] BibTeX block added to the repo-root README (2026-09-20). Written by hand as
     `@inproceedings`; `cffconvert -f bibtex` emits `@misc` with a placeholder key and
     drops the venue, so it is not usable for a conference paper.
