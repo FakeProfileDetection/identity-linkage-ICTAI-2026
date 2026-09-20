@@ -27,9 +27,16 @@ De-anonymization (former Priority 1) is done — see Done.
   (2026-09-20, repo dormant since 2024, don't wait on it). If he grants one: add to
   Credits, drop the caveat paragraph from `web-data-collection-gcs/README.md`.
   Fallback if he never replies: rewrite the ~190 lines of markup ourselves.
-- [ ] **Add citation metadata** — `CITATION.cff` and/or a BibTeX block pointing at the
-  ICTAI 2026 paper. Needs a contact address for people citing the *code* (not the one
-  participants see, which belongs to whoever deploys it).
+- [x] **Add citation metadata** (2026-09-20) — `CITATION.cff` at the repo root,
+  validated against CFF 1.2.0 with `cffconvert`. Author entries carry the paper's
+  addresses; `contact` is Alvin's personal one, since the address on the paper is a
+  student account.
+  - [ ] Three fields left out rather than invented: `doi` (none assigned yet),
+    `license` (blocked on the LICENSE decision above), and the conference edition
+    number, location, and dates. Fill them in when known.
+  - [ ] Add a BibTeX block to the repo-root README when that gets written —
+    `uvx cffconvert -f bibtex -i CITATION.cff` generates it, but needs a real cite key
+    and the conference fields above.
 - [ ] **Repo-root README.** Empty. Should cover the paper, the repo layout, how
   `web-data-collection-gcs/` relates to the analysis code and dataset, and the
   `STUDY_NAME`/`INSTITUTION_NAME` values our own collection ran under.

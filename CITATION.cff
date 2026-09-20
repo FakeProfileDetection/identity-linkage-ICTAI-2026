@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this software or the dataset it collected, please cite the paper below."
+title: "Context-Robust Identity Linkage in Social Media via Keystroke Dynamics"
+type: software
+repository-code: "https://github.com/FakeProfileDetection/identity-linkage-ICTAI-2026"
+
+authors:
+  - given-names: Alvin
+    family-names: Kuruvilla
+    affiliation: "Hofstra University, USA"
+    email: akuruvilla1@pride.hofstra.edu
+  - given-names: Lori
+    family-names: Pickering
+    affiliation: "AI Security Assurance, USA"
+    email: sol@solofai.com
+  - given-names: Indrani
+    family-names: Rentala
+    affiliation: "TruU, USA"
+    email: r.indrani10@gmail.com
+  - given-names: Rajesh
+    family-names: Kumar
+    affiliation: "Bucknell University, USA"
+    email: rk042@bucknell.edu
+
+contact:
+  - given-names: Alvin
+    family-names: Kuruvilla
+    email: alvineasokuruvilla@gmail.com
+
+keywords:
+  - identity linkage
+  - keystroke dynamics
+  - behavioral biometrics
+  - cross-context identification
+  - contextual robustness
+
+preferred-citation:
+  type: conference-paper
+  title: "Context-Robust Identity Linkage in Social Media via Keystroke Dynamics"
+  year: 2026
+  collection-title: "Proceedings of the IEEE International Conference on Tools with Artificial Intelligence (ICTAI)"
+  conference:
+    name: "IEEE International Conference on Tools with Artificial Intelligence (ICTAI)"
+  authors:
+    - given-names: Alvin
+      family-names: Kuruvilla
+      affiliation: "Hofstra University, USA"
+    - given-names: Lori
+      family-names: Pickering
+      affiliation: "AI Security Assurance, USA"
+    - given-names: Indrani
+      family-names: Rentala
+      affiliation: "TruU, USA"
+    - given-names: Rajesh
+      family-names: Kumar
+      affiliation: "Bucknell University, USA"
