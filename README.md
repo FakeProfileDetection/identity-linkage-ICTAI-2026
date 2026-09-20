@@ -52,7 +52,8 @@ repository.
 
 ## Licensing
 
-The code is MIT — see `LICENSE`.
+The code is MIT — see [`LICENSE`](LICENSE), and [`NOTICE.md`](NOTICE.md) for what it
+does not cover.
 
 Four things here are not ours and are **not** MIT-licensed. Each carries its own
 `NOTICE.md` or `LICENSE` stating where it came from and what we claim, which is

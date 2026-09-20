@@ -16,12 +16,14 @@ De-anonymization (former Priority 1) is done — see Done.
 
 - [x] **Add a LICENSE file** (2026-09-20) — MIT at the repo root, copyright the four
   paper authors. `package.json` moved ISC → MIT and `CITATION.cff` carries it.
-  LICENSE now also carries a scope section naming the directories it does not cover,
-  each of which has its own `LICENSE` or `NOTICE.md`.
-  - [ ] Verify GitHub still detects MIT after pushing — the scope section adds text,
-    and detection is a similarity match against the bare license:
-    `gh api repos/FakeProfileDetection/identity-linkage-ICTAI-2026/license --jq '.license.spdx_id'`
-    If that is not `MIT`, move the scope section to a root `NOTICE.md`.
+  The scope — what MIT does not cover — lives in the root `NOTICE.md`, because
+  putting it in `LICENSE` broke GitHub's detection: with the section appended the API
+  reported `NOASSERTION — Other`, and it reads `MIT` again with `LICENSE` bare.
+  Detection is a similarity match against the plain license text, so leave that file
+  alone. Verify with:
+  ```bash
+  gh api repos/FakeProfileDetection/identity-linkage-ICTAI-2026/license --jq '.license.spdx_id'
+  ```
 - [ ] **License the dataset.** `datasets/clean-data` (79 MB, 2228 files) is
   participant data and sits under the root LICENSE without being covered by it — the
   README says so, but nothing states what *does* cover it. Human-subjects data

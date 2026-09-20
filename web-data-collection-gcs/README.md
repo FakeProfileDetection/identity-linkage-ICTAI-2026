@@ -323,7 +323,8 @@ This project uses modified versions of:
 
 ## License
 
-MIT, per `LICENSE` at the repository root, which covers the code we wrote.
+MIT, per `LICENSE` at the repository root, which covers the code we wrote. The root
+`NOTICE.md` records what it does not cover.
 
 Each directory holding material we do not own carries its own file stating where it
 came from and what we claim, which is nothing beyond our own modifications:
