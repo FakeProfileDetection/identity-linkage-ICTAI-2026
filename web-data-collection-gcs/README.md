@@ -256,11 +256,8 @@ inspirational, shocking, political) to maximize variance in typing behavior.
 ### Informed Consent Form
 
 A template informed consent form is provided at
-`pages/hosting/Informed Consent.pdf`. It is a template, not a consent form you can
-use — running this study is your own research, under your own institution's
-approval. **Before recruiting anyone you need your own IRB or ethics-board approval
-covering it.** The approval the authors obtained for the study in the paper does not
-extend to your deployment, and nothing in this repository substitutes for it.
+`pages/hosting/Informed Consent.pdf`. **You need your own IRB or ethics-board
+approval before recruiting anyone** — ours does not cover your deployment.
 
 Every field marked `[FILL IN: ...]` must be replaced with your own details:
 
@@ -272,8 +269,7 @@ Every field marked `[FILL IN: ...]` must be replaced with your own details:
 - **Participant Rights Contact** (Section 9) — your IRB or ethics board: name,
   protocol number, phone, and email
 
-`configure.sh` does not touch this file — it only rewrites `.js`, `.html`, `.sh`, and
-`.py` — so these are edited by hand.
+`configure.sh` does not touch this file, so these are edited by hand.
 
 **To customize the template:**
 
@@ -301,20 +297,15 @@ This project uses modified versions of:
 - [Instagram Clone](https://github.com/leocosta1/instagram-clone) by Leo Costa
   ([MIT](pages/fake_pages/instagram-clone/LICENSE))
 - [Twitter Clone](https://github.com/somanath-goudar/html-css-projects/tree/main/twitter-clone)
-  by Somanath Goudar, from his HTML/CSS clones tutorial series. Our copy keeps his
-  markup and stylesheet; the changes are a `<textarea>` in place of the single-line
-  `<input>` so posts can run to several lines, the tweet-button states, and
-  `script.js`, which is ours. The sample posts still carry his `@somanathg` handle.
-  That project is in turn a static port of the React
-  [Clever Programmer Twitter clone](https://github.com/CleverProgrammers/twitter-clone),
-  which the shared `post__*` and `widgets__*` class names come from.
+  by Somanath Goudar, itself a port of the React
+  [Clever Programmer Twitter clone](https://github.com/CleverProgrammers/twitter-clone).
+  We changed the `<input>` to a `<textarea>` for multi-line posts and wrote
+  `script.js`.
 
-Neither the Twitter clone nor the Clever Programmer project it derives from publishes
-a license, so neither grants redistribution rights. It is included here with
-attribution, unmodified in substance, for non-commercial academic research. If you
-reuse this repository, that page carries the same unresolved status for you as it
-does for us — clear it with the author, or replace the markup, before using it for
-anything we have not.
+Neither the Twitter clone nor the project it derives from publishes a license, so
+neither grants redistribution rights. It is included with attribution for
+non-commercial academic research. If you reuse this repository, clear that page with
+the author or replace the markup first.
 
 ## License
 

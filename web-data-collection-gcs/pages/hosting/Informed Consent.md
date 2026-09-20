@@ -6,14 +6,9 @@ geometry: margin=1in
 
 # Informed Consent
 
-> **TEMPLATE — not a usable consent form.** Every `[FILL IN: ...]` marker below must
-> be replaced with your own study's details before you show this to anyone, and the
-> study it describes must be covered by your own institution's IRB approval. The
-> approval obtained by the authors of this software does not extend to your use of
-> it. Delete this notice once the form is complete.
->
-> To check nothing was missed:
-> `grep -n "FILL IN" "pages/hosting/Informed Consent.md"`
+> **TEMPLATE — not a usable consent form.** Replace every `[FILL IN: ...]` marker
+> with your own details, and get your own IRB approval; ours does not cover your
+> study. Delete this notice when done.
 
 **Study Title:** [FILL IN: your study's official title, as approved by your IRB]
 
