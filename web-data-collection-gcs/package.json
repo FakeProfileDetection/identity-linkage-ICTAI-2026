@@ -2,16 +2,17 @@
   "name": "web-data-collection",
   "version": "1.0.0",
   "description": "Web application for collecting typing dynamics data in a simulated social media environment",
-  "homepage": "https://github.com/YOUR_GITHUB_ORG/YOUR_REPO#readme",
+  "homepage": "https://github.com/FakeProfileDetection/identity-linkage-ICTAI-2026#readme",
   "bugs": {
-    "url": "https://github.com/YOUR_GITHUB_ORG/YOUR_REPO/issues"
+    "url": "https://github.com/FakeProfileDetection/identity-linkage-ICTAI-2026/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YOUR_GITHUB_ORG/YOUR_REPO.git"
+    "url": "git+https://github.com/FakeProfileDetection/identity-linkage-ICTAI-2026.git",
+    "directory": "web-data-collection-gcs"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Alvin Kuruvilla <alvineasokuruvilla@gmail.com>",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
