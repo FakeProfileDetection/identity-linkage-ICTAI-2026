@@ -17,10 +17,10 @@ De-anonymization (former Priority 1) is done — see Done.
 - [ ] **Add a LICENSE file.** There is none. `package.json` says `"license": "ISC"`,
   `README.md` says "provided for academic research purposes". Pick one, make both
   agree.
-- [ ] **Facebook clone upstream is gone.** `KashanAdnan/Facebook-Clone`, linked from
-  Credits, returns `Repository access blocked — reason: trademark` (2025-06-20). Dead
-  link, and the terms we inherited are unknowable. Decide whether shipping it is
-  defensible.
+- [x] **Facebook clone upstream is gone** (2026-09-20) — `KashanAdnan/Facebook-Clone`
+  returns `Repository access blocked — reason: trademark` (2025-06-20). It was live
+  when we took the copy and there is nothing to re-check now. Credits keeps the link
+  as a record of origin, noting the block.
 - [ ] **Twitter clone license.** Shipping it credited under a no-license caveat;
   asked the author at
   [somanath-goudar/html-css-projects#20](https://github.com/somanath-goudar/html-css-projects/issues/20)
@@ -38,23 +38,7 @@ De-anonymization (former Priority 1) is done — see Done.
 
 ---
 
-## Priority 2 — Dev leftovers
-
-Keep-and-document vs. remove. None are linked from the participant flow.
-
-- [ ] `pages/hosting/debug-userid.html` + `debug-userid2.html` — unreferenced debug
-  pages, two near-identical copies.
-- [ ] `cloud-functions/saver/test.txt` — contains only `Hello from GCS test`.
-- [ ] `cloud-functions/saver/test-upload.html` — manual upload tester. If kept,
-  mention it in the README's "Verify Your Setup" step.
-- [ ] `km_headless_testbed/` — standalone "GCS Upload Test" harness, not part of the
-  study flow.
-- [ ] `pages/hosting/mturk-Design-Layout.html` — carries a `YOUR_VALIDATION_API_URL`
-  placeholder. Keep only if MTurk recruitment is part of the published method.
-
----
-
-## Priority 3 — Verification before publishing
+## Priority 2 — Verification before publishing
 
 - [ ] **Re-scan for leaked infrastructure and PII.** Text scan was clean 2026-09-07;
   re-run before publishing and after any edit restoring real values.

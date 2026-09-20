@@ -38,6 +38,7 @@ web-data-collection-gcs/
 │   │   ├── tasks.html         # Video + task controller
 │   │   ├── survey-code.html   # Completion code page
 │   │   ├── complete.html      # Study completion
+│   │   ├── mturk-Design-Layout.html  # HIT layout, if recruiting via MTurk
 │   │   └── videos/            # Video stimuli (see copyright section)
 │   └── fake_pages/            # Social media platform clones
 │       ├── Facebook-Clone/
@@ -162,6 +163,12 @@ grep -rn "YOUR_" --include="*.js" --include="*.html" --include="*.sh" .
 ```
 
 This should return no results (aside from this README).
+
+Then confirm uploads actually reach your bucket. Open
+`cloud-functions/saver/test-upload.html` in a browser and submit a test file — it
+posts to your deployed Cloud Function the same way the study pages do, so a success
+here means the function, the bucket, and CORS are all configured correctly. Delete
+the test object from your bucket afterwards.
 
 ## Rebuilding the WASM Keystroke Module
 
@@ -293,7 +300,9 @@ name, so keep the filename as-is or update the link in `consent.html`.
 
 This project uses modified versions of:
 
-- [Facebook Clone](https://github.com/KashanAdnan/Facebook-Clone) by Kashan Adnan
+- [Facebook Clone](https://github.com/KashanAdnan/Facebook-Clone) by Kashan Adnan.
+  The upstream was live when we took this copy; GitHub has since blocked it over a
+  trademark claim (June 2025), so the link no longer resolves.
 - [Instagram Clone](https://github.com/leocosta1/instagram-clone) by Leo Costa
   ([MIT](pages/fake_pages/instagram-clone/LICENSE))
 - [Twitter Clone](https://github.com/somanath-goudar/html-css-projects/tree/main/twitter-clone)

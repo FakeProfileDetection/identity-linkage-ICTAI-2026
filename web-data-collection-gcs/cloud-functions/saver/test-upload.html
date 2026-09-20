@@ -135,7 +135,6 @@
     
     <div class="control-group">
         <button id="uploadBtn" onclick="testUpload()">Test Upload</button>
-        <button onclick="validateFilenameLocally()">Validate Filename Locally</button>
         <button onclick="clearResults()">Clear Results</button>
     </div>
     
@@ -284,30 +283,6 @@
         }
     };
     
-    // Local implementation of the server's extractUserIdFromFilename function
-    function extractUserIdFromFilename(filename) {
-        console.log('Extracting user ID from filename:', filename);
-        
-        // Pattern 1: Platform files
-        const platformPattern = /^[fit]_([a-f0-9]{32})_[0-9]+(_raw\.txt|\.csv|_metadata\.json)$/;
-        const platformMatch = filename.match(platformPattern);
-        if (platformMatch) {
-            console.log('Matched platform pattern, user ID:', platformMatch[1]);
-            return platformMatch[1];
-        }
-        
-        // Pattern 2: Direct user ID files
-        const directPattern = /^([a-f0-9]{32})_(consent|demographics|start_study|completion)\.json$/;
-        const directMatch = filename.match(directPattern);
-        if (directMatch) {
-            console.log('Matched direct pattern, user ID:', directMatch[1]);
-            return directMatch[1];
-        }
-        
-        console.log('No user ID pattern matched');
-        return null;
-    }
-    
     function updateContent() {
         const type = document.getElementById('testType').value;
         const testData = sampleContent[type];
@@ -322,52 +297,17 @@
         updateDebugInfo(testData);
     }
     
+    // Only what is knowable here. Whether the filename parses is the Cloud
+    // Function's call, and it reports that in the response — this page used to
+    // answer it locally from a copy of the server's regex, which had already
+    // drifted out of date and failed files the server accepts.
     function updateDebugInfo(testData) {
-        const debugEl = document.getElementById('debugInfo');
-        const userId = extractUserIdFromFilename(testData.filename);
-        
-        debugEl.innerHTML = `
+        document.getElementById('debugInfo').innerHTML = `
             <div class="debug-item"><strong>Filename:</strong> ${testData.filename}</div>
             <div class="debug-item"><strong>Content-Type:</strong> ${testData.type}</div>
             <div class="debug-item"><strong>Content Length:</strong> ${testData.content.length} bytes</div>
-            <div class="debug-item"><strong>Extracted User ID:</strong> ${userId || 'FAILED TO EXTRACT'}</div>
-            <div class="debug-item"><strong>User ID Length:</strong> ${userId ? userId.length : 0} (expected: 32)</div>
-            <div class="debug-item"><strong>User ID Valid Hex:</strong> ${userId ? /^[a-f0-9]{32}$/.test(userId) : false}</div>
+            <div class="debug-item"><strong>Test User ID:</strong> ${TEST_USER_ID}</div>
         `;
-        
-        if (!userId) {
-            debugEl.innerHTML += '<div class="debug-item error"><strong>⚠️ Warning:</strong> Failed to extract user ID locally. Upload will likely fail.</div>';
-        }
-    }
-    
-    function validateFilenameLocally() {
-        const type = document.getElementById('testType').value;
-        const testData = sampleContent[type];
-        const resultEl = document.getElementById('result');
-        
-        resultEl.className = 'info';
-        resultEl.textContent = `Testing filename validation locally...\n\n`;
-        resultEl.textContent += `Filename: ${testData.filename}\n\n`;
-        
-        const userId = extractUserIdFromFilename(testData.filename);
-        
-        if (userId) {
-            resultEl.textContent += `✅ Successfully extracted user ID: ${userId}\n`;
-            resultEl.textContent += `User ID length: ${userId.length} characters\n`;
-            resultEl.textContent += `Valid hex format: ${/^[a-f0-9]{32}$/.test(userId) ? 'Yes' : 'No'}\n`;
-        } else {
-            resultEl.className = 'error';
-            resultEl.textContent += `❌ Failed to extract user ID from filename\n\n`;
-            resultEl.textContent += `Debugging patterns:\n`;
-            
-            // Test against platform pattern
-            const platformPattern = /^[fit]_([a-f0-9]{32})_[0-9]+(_raw\.txt|\.csv|_metadata\.json)$/;
-            resultEl.textContent += `Platform pattern test: ${platformPattern.test(testData.filename) ? 'MATCHES' : 'NO MATCH'}\n`;
-            
-            // Test against direct pattern
-            const directPattern = /^([a-f0-9]{32})_(consent|demographics|start_study|completion)\.json$/;
-            resultEl.textContent += `Direct pattern test: ${directPattern.test(testData.filename) ? 'MATCHES' : 'NO MATCH'}\n`;
-        }
     }
     
     function clearResults() {
