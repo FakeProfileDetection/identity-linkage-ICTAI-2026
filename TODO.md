@@ -14,9 +14,16 @@ De-anonymization (former Priority 1) is done — see Done.
 
 ## Priority 1 — Artifact release readiness
 
-- [ ] **Add a LICENSE file.** There is none. `package.json` says `"license": "ISC"`,
-  `README.md` says "provided for academic research purposes". Pick one, make both
-  agree.
+- [x] **Add a LICENSE file** (2026-09-20) — MIT at the repo root, copyright the four
+  paper authors. `package.json` moved ISC → MIT and `CITATION.cff` carries it. The
+  LICENSE holds the unmodified MIT text so GitHub's license detection works; the
+  carve-outs live in `web-data-collection-gcs/README.md` instead.
+- [ ] **License the dataset.** `datasets/clean-data` (79 MB, 2228 files) is
+  participant data and sits under the root LICENSE without being covered by it — the
+  README says so, but nothing states what *does* cover it. Human-subjects data
+  normally carries its own terms (CC-BY-4.0, CC0, or a data-use statement). The
+  consent form promises anonymized publication, which permits release but does not
+  choose an instrument. Decide, and add it next to the data.
 - [x] **Facebook clone upstream is gone** (2026-09-20) — `KashanAdnan/Facebook-Clone`
   returns `Repository access blocked — reason: trademark` (2025-06-20). It was live
   when we took the copy and there is nothing to re-check now. Credits keeps the link

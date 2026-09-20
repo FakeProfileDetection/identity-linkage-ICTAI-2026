@@ -318,6 +318,16 @@ the author or replace the markup first.
 
 ## License
 
-This repository is provided for academic research purposes. See
-[Video Copyright and Licensing](#video-copyright-and-licensing) for information
-about the included video clips.
+MIT, per `LICENSE` at the repository root.
+
+That covers the code we wrote. Four things in this repository are not ours to
+license and are **not** covered by it:
+
+- **`pages/hosting/videos/`** — three copyrighted clips, included under a fair-use
+  claim. See [Video Copyright and Licensing](#video-copyright-and-licensing).
+- **`pages/fake_pages/twitter-clone/`** — no license from upstream. See Credits.
+- **`pages/fake_pages/Facebook-Clone/`** — upstream terms unknown; the source repo
+  has been taken down. See Credits.
+- **`datasets/`** (repository root) — participant data, licensed separately.
+
+`pages/fake_pages/instagram-clone/` is MIT from upstream and ships its own LICENSE.
