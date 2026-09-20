@@ -24,7 +24,7 @@ whether to restore the real value or keep the placeholder.
 `YOUR_CLOUD_FUNCTION_URL`, `YOUR_GITHUB_PAGES_URL`) so others can still run it with
 their own infrastructure. Never restore our real GCP project ID or bucket name.
 
-- [ ] **Restore author/maintainer identity**
+- [x] **Restore author/maintainer identity** (2026-09-20)
   - [x] `web-data-collection-gcs/package.json` — `homepage`, `bugs.url`, and
     `repository.url` now point at `FakeProfileDetection/identity-linkage-ICTAI-2026`
     (2026-09-20). Confirmed these were *not* adopter-facing placeholders: the README
@@ -45,16 +45,15 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
     paths and all eight public methods, with the pre-rebuild build run through the
     same checks for comparison. Identical results. `lib.rs` and the pages are
     untouched.
-- [ ] **Researcher contact email** — the blind-review address
-  `fpd.research.2026@gmail.com` was replaced by a `RESEARCHER_EMAIL` config variable
-  (`config.env`). Confirm nothing still hardcodes the anonymous address, and decide
-  the real contact address for the published artifact.
-  - [x] Scan is clean (2026-09-20): `git grep fpd.research.2026` matches nothing
-    outside this file. `RESEARCHER_EMAIL` survives as a live `configure.sh` token in
-    `survey-code.html` (lines 384, 423, 589, 599) and as a blank key in `config.env`.
-  - [ ] Decide the published contact address, and whether it ships as a `config.env`
-    default. Note that a non-empty value there is baked into an adopter's pages by
-    `configure.sh`, so our address would become theirs unless they clear it.
+- [x] **Researcher contact email** (2026-09-20) — nothing to restore. The scan is
+  clean: `git grep fpd.research.2026` matches nothing outside this file.
+  `RESEARCHER_EMAIL` stays blank in `config.env`, which is the adopter's fill-in
+  file — every key in it is blank by design, and `README.md:102` already documents
+  the key with an example value. The address participants see must be the adopter's,
+  since they are running their own study under their own approval.
+
+  The contact address for the *artifact* is a separate question, tracked under
+  Priority 2 with `CITATION.cff`.
 - [x] **Informed consent document** (2026-09-20) — stays a template. Decided against
   publishing the real IRB-approved form: an adopter running this is doing their own
   research under their own approval, and a form that looks reusable invites someone to
@@ -73,10 +72,14 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
     `.md`, so a stale PDF would have shown participants the old text. Verified with
     `pdftotext`: 7 `FILL IN` markers, notice and Section 9 present, signature block
     intact.
-- [ ] **Study identity defaults** — `STUDY_NAME`, `STUDY_DESCRIPTION`,
-  `INSTITUTION_NAME` in `config.env` are blank. Consider shipping the real values used
-  in the paper's data collection as documented defaults, so the artifact matches what
-  the paper describes.
+- [x] **Study identity defaults** (2026-09-20) — leaving them blank, for the same
+  reason as the contact email. `config.env` is the adopter's fill-in file, and
+  `README.md:97-99` already documents all three keys with example values. Shipping
+  our real values as defaults would brand an adopter's deployment with our study and
+  institution the moment they run `configure.sh`.
+
+  What the paper's own collection used belongs in the repo-root README as a record of
+  the deployment, not in a file whose contents get executed (Priority 2).
 
 ---
 
@@ -91,7 +94,10 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
   confirm it was written in-house. The Instagram clone ships an MIT LICENSE
   (Leonardo Costa, 2020); check the Facebook clone's terms too.
 - [ ] **Add citation metadata** — `CITATION.cff` and/or a BibTeX block in the README
-  pointing at the ICTAI 2026 paper, so the artifact is citable.
+  pointing at the ICTAI 2026 paper, so the artifact is citable. Decide the contact
+  address that goes on it (moved here from Priority 1): this is the address for
+  someone citing or reusing the *code*, and is deliberately not the one participants
+  see, which belongs to whoever deploys it.
 - [ ] **Repo-root README.** Currently empty (0 bytes). Should describe the paper, the
   repo layout, and how `web-data-collection-gcs/` relates to the analysis code and
   dataset.
