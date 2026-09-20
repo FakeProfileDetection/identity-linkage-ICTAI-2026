@@ -109,13 +109,16 @@ their own infrastructure. Never restore our real GCP project ID or bucket name.
   359-star promotional tutorial repo, reused non-commercially with attribution — but
   small is not zero, and it is a risk decision, not permission.
 
-  Still worth doing, and cheap, if anyone has five minutes: **ask him.** He is not
-  gone — his GitHub profile updated 2026-09-09, and he has answered issues on this
-  repo personally as owner. It is the repo that is dormant (last push 2024-01-28,
-  issue #17 open and untouched since 2025-12-13). Nobody has ever raised licensing
-  with him. A grant would settle this permanently; silence leaves us exactly here.
-  Rewriting the ~190 lines of markup ourselves remains the fallback that removes the
-  question entirely.
+  **Asked him**, 2026-09-20:
+  [somanath-goudar/html-css-projects#20](https://github.com/somanath-goudar/html-css-projects/issues/20).
+  He is not gone — profile updated 2026-09-09, and he has answered issues on this repo
+  personally as owner — but the repo is dormant (last push 2024-01-28, issue #17 open
+  since 2025-12-13), so a reply is not something to wait on.
+
+  - [ ] If he grants a license: add it to Credits, drop the caveat paragraph from
+    `web-data-collection-gcs/README.md`, and close this out.
+  - [ ] If he never replies: the position above stands. Rewriting the ~190 lines of
+    markup ourselves remains the fallback that removes the question entirely.
 - [ ] **The Facebook clone's upstream has been taken down.**
   `KashanAdnan/Facebook-Clone`, which the Credits section links, now returns
   `Repository access blocked — reason: trademark` (blocked 2025-06-20). The link in
