@@ -1,0 +1,192 @@
+scenario	variation	gallery	gallery_samples_per_user	probe	probe_samples_per_user	k=1	k=2	k=3	k=4	k=5
+1.1	PT.S	F / T1 / S1	1	F / T1 / S2	1					
+1.1	PT.S	F / T2 / S1	1	F / T2 / S2	1					
+1.1	PT.S	F / T3 / S1	1	F / T3 / S2	1					
+1.1	PT.S	I / T1 / S1	1	I / T1 / S2	1					
+1.1	PT.S	I / T2 / S1	1	I / T2 / S2	1					
+1.1	PT.S	I / T3 / S1	1	I / T3 / S2	1					
+1.1	PT.S	X / T1 / S1	1	X / T1 / S2	1					
+1.1	PT.S	X / T2 / S1	1	X / T2 / S2	1					
+1.1	PT.S	X / T3 / S1	1	X / T3 / S2	1					
+1.1		mean								
+1.1		std								
+1.2	PT.S	F / T1 / S2	1	F / T1 / S1	1					
+1.2	PT.S	F / T2 / S2	1	F / T2 / S1	1					
+1.2	PT.S	F / T3 / S2	1	F / T3 / S1	1					
+1.2	PT.S	I / T1 / S2	1	I / T1 / S1	1					
+1.2	PT.S	I / T2 / S2	1	I / T2 / S1	1					
+1.2	PT.S	I / T3 / S2	1	I / T3 / S1	1					
+1.2	PT.S	X / T1 / S2	1	X / T1 / S1	1					
+1.2	PT.S	X / T2 / S2	1	X / T2 / S1	1					
+1.2	PT.S	X / T3 / S2	1	X / T3 / S1	1					
+1.2		mean								
+1.2		std								
+2.1	T.PS	F / T1 / S1	1	I / T1 / S2	1					
+2.1	T.PS	F / T2 / S1	1	I / T2 / S2	1					
+2.1	T.PS	F / T3 / S1	1	I / T3 / S2	1					
+2.1	T.PS	F / T1 / S1	1	X / T1 / S2	1					
+2.1	T.PS	F / T2 / S1	1	X / T2 / S2	1					
+2.1	T.PS	F / T3 / S1	1	X / T3 / S2	1					
+2.1	T.PS	I / T1 / S1	1	X / T1 / S2	1					
+2.1	T.PS	I / T2 / S1	1	X / T2 / S2	1					
+2.1	T.PS	I / T3 / S1	1	X / T3 / S2	1					
+2.1	T.PS	I / T1 / S1	1	F / T1 / S2	1					
+2.1	T.PS	I / T2 / S1	1	F / T2 / S2	1					
+2.1	T.PS	I / T3 / S1	1	F / T3 / S2	1					
+2.1	T.PS	X / T1 / S1	1	F / T1 / S2	1					
+2.1	T.PS	X / T2 / S1	1	F / T2 / S2	1					
+2.1	T.PS	X / T3 / S1	1	F / T3 / S2	1					
+2.1	T.PS	X / T1 / S1	1	I / T1 / S2	1					
+2.1	T.PS	X / T2 / S1	1	I / T2 / S2	1					
+2.1	T.PS	X / T3 / S1	1	I / T3 / S2	1					
+2.1		mean								
+2.1		std								
+2.2	T.PS	F / T1 / S2	1	I / T1 / S1	1					
+2.2	T.PS	F / T2 / S2	1	I / T2 / S1	1					
+2.2	T.PS	F / T3 / S2	1	I / T3 / S1	1					
+2.2	T.PS	F / T1 / S2	1	X / T1 / S1	1					
+2.2	T.PS	F / T2 / S2	1	X / T2 / S1	1					
+2.2	T.PS	F / T3 / S2	1	X / T3 / S1	1					
+2.2	T.PS	I / T1 / S2	1	X / T1 / S1	1					
+2.2	T.PS	I / T2 / S2	1	X / T2 / S1	1					
+2.2	T.PS	I / T3 / S2	1	X / T3 / S1	1					
+2.2	T.PS	I / T1 / S2	1	F / T1 / S1	1					
+2.2	T.PS	I / T2 / S2	1	F / T2 / S1	1					
+2.2	T.PS	I / T3 / S2	1	F / T3 / S1	1					
+2.2	T.PS	X / T1 / S2	1	F / T1 / S1	1					
+2.2	T.PS	X / T2 / S2	1	F / T2 / S1	1					
+2.2	T.PS	X / T3 / S2	1	F / T3 / S1	1					
+2.2	T.PS	X / T1 / S2	1	I / T1 / S1	1					
+2.2	T.PS	X / T2 / S2	1	I / T2 / S1	1					
+2.2	T.PS	X / T3 / S2	1	I / T3 / S1	1					
+2.2		mean								
+2.2		std								
+3.1	TS.P	F / T1 / S1,S2	2	I / T1 / S1,S2	2					
+3.1	TS.P	F / T2 / S1,S2	2	I / T2 / S1,S2	2					
+3.1	TS.P	F / T3 / S1,S2	2	I / T3 / S1,S2	2					
+3.1	TS.P	F / T1 / S1,S2	2	X / T1 / S1,S2	2					
+3.1	TS.P	F / T2 / S1,S2	2	X / T2 / S1,S2	2					
+3.1	TS.P	F / T3 / S1,S2	2	X / T3 / S1,S2	2					
+3.1	TS.P	I / T1 / S1,S2	2	X / T1 / S1,S2	2					
+3.1	TS.P	I / T2 / S1,S2	2	X / T2 / S1,S2	2					
+3.1	TS.P	I / T3 / S1,S2	2	X / T3 / S1,S2	2					
+3.1	TS.P	I / T1 / S1,S2	2	F / T1 / S1,S2	2					
+3.1	TS.P	I / T2 / S1,S2	2	F / T2 / S1,S2	2					
+3.1	TS.P	I / T3 / S1,S2	2	F / T3 / S1,S2	2					
+3.1	TS.P	X / T1 / S1,S2	2	F / T1 / S1,S2	2					
+3.1	TS.P	X / T2 / S1,S2	2	F / T2 / S1,S2	2					
+3.1	TS.P	X / T3 / S1,S2	2	F / T3 / S1,S2	2					
+3.1	TS.P	X / T1 / S1,S2	2	I / T1 / S1,S2	2					
+3.1	TS.P	X / T2 / S1,S2	2	I / T2 / S1,S2	2					
+3.1	TS.P	X / T3 / S1,S2	2	I / T3 / S1,S2	2					
+3.1		mean								
+3.1		std								
+3.2	TS.P	F,I / T1 / S1,S2	4	X / T1 / S1,S2	2					
+3.2	TS.P	F,I / T2 / S1,S2	4	X / T2 / S1,S2	2					
+3.2	TS.P	F,I / T3 / S1,S2	4	X / T3 / S1,S2	2					
+3.2	TS.P	I,X / T1 / S1,S2	4	F / T1 / S1,S2	2					
+3.2	TS.P	I,X / T2 / S1,S2	4	F / T2 / S1,S2	2					
+3.2	TS.P	I,X / T3 / S1,S2	4	F / T3 / S1,S2	2					
+3.2	TS.P	X,F / T1 / S1,S2	4	I / T1 / S1,S2	2					
+3.2	TS.P	X,F / T2 / S1,S2	4	I / T2 / S1,S2	2					
+3.2	TS.P	X,F / T3 / S1,S2	4	I / T3 / S1,S2	2					
+3.2		mean								
+3.2		std								
+4.1	S.PT	F / T1 / S1,S2	2	I / T2 / S1,S2	2					
+4.1	S.PT	F / T1 / S1,S2	2	I / T3 / S1,S2	2					
+4.1	S.PT	F / T1 / S1,S2	2	X / T2 / S1,S2	2					
+4.1	S.PT	F / T1 / S1,S2	2	X / T3 / S1,S2	2					
+4.1	S.PT	F / T2 / S1,S2	2	I / T1 / S1,S2	2					
+4.1	S.PT	F / T2 / S1,S2	2	I / T3 / S1,S2	2					
+4.1	S.PT	F / T2 / S1,S2	2	X / T1 / S1,S2	2					
+4.1	S.PT	F / T2 / S1,S2	2	X / T3 / S1,S2	2					
+4.1	S.PT	F / T3 / S1,S2	2	I / T1 / S1,S2	2					
+4.1	S.PT	F / T3 / S1,S2	2	I / T2 / S1,S2	2					
+4.1	S.PT	F / T3 / S1,S2	2	X / T1 / S1,S2	2					
+4.1	S.PT	F / T3 / S1,S2	2	X / T2 / S1,S2	2					
+4.1	S.PT	I / T1 / S1,S2	2	F / T2 / S1,S2	2					
+4.1	S.PT	I / T1 / S1,S2	2	F / T3 / S1,S2	2					
+4.1	S.PT	I / T1 / S1,S2	2	X / T2 / S1,S2	2					
+4.1	S.PT	I / T1 / S1,S2	2	X / T3 / S1,S2	2					
+4.1	S.PT	I / T2 / S1,S2	2	F / T1 / S1,S2	2					
+4.1	S.PT	I / T2 / S1,S2	2	F / T3 / S1,S2	2					
+4.1	S.PT	I / T2 / S1,S2	2	X / T1 / S1,S2	2					
+4.1	S.PT	I / T2 / S1,S2	2	X / T3 / S1,S2	2					
+4.1	S.PT	I / T3 / S1,S2	2	F / T1 / S1,S2	2					
+4.1	S.PT	I / T3 / S1,S2	2	F / T2 / S1,S2	2					
+4.1	S.PT	I / T3 / S1,S2	2	X / T1 / S1,S2	2					
+4.1	S.PT	I / T3 / S1,S2	2	X / T2 / S1,S2	2					
+4.1	S.PT	X / T1 / S1,S2	2	F / T2 / S1,S2	2					
+4.1	S.PT	X / T1 / S1,S2	2	F / T3 / S1,S2	2					
+4.1	S.PT	X / T1 / S1,S2	2	I / T2 / S1,S2	2					
+4.1	S.PT	X / T1 / S1,S2	2	I / T3 / S1,S2	2					
+4.1	S.PT	X / T2 / S1,S2	2	F / T1 / S1,S2	2					
+4.1	S.PT	X / T2 / S1,S2	2	F / T3 / S1,S2	2					
+4.1	S.PT	X / T2 / S1,S2	2	I / T1 / S1,S2	2					
+4.1	S.PT	X / T2 / S1,S2	2	I / T3 / S1,S2	2					
+4.1	S.PT	X / T3 / S1,S2	2	F / T1 / S1,S2	2					
+4.1	S.PT	X / T3 / S1,S2	2	F / T2 / S1,S2	2					
+4.1	S.PT	X / T3 / S1,S2	2	I / T1 / S1,S2	2					
+4.1	S.PT	X / T3 / S1,S2	2	I / T2 / S1,S2	2					
+4.1		mean								
+4.1		std								
+4.2	S.PT	F,I / T1 / S1,S2	4	X / T2 / S1,S2	2					
+4.2	S.PT	F,I / T2 / S1,S2	4	X / T3 / S1,S2	2					
+4.2	S.PT	F,I / T3 / S1,S2	4	X / T1 / S1,S2	2					
+4.2	S.PT	F,I / T1 / S1,S2	4	X / T3 / S1,S2	2					
+4.2	S.PT	F,I / T2 / S1,S2	4	X / T1 / S1,S2	2					
+4.2	S.PT	F,I / T3 / S1,S2	4	X / T2 / S1,S2	2					
+4.2	S.PT	F,X / T1 / S1,S2	4	I / T2 / S1,S2	2					
+4.2	S.PT	F,X / T2 / S1,S2	4	I / T3 / S1,S2	2					
+4.2	S.PT	F,X / T3 / S1,S2	4	I / T1 / S1,S2	2					
+4.2	S.PT	F,X / T1 / S1,S2	4	I / T3 / S1,S2	2					
+4.2	S.PT	F,X / T2 / S1,S2	4	I / T1 / S1,S2	2					
+4.2	S.PT	F,X / T3 / S1,S2	4	I / T2 / S1,S2	2					
+4.2	S.PT	I,X / T1 / S1,S2	4	F / T2 / S1,S2	2					
+4.2	S.PT	I,X / T2 / S1,S2	4	F / T3 / S1,S2	2					
+4.2	S.PT	I,X / T3 / S1,S2	4	F / T1 / S1,S2	2					
+4.2	S.PT	I,X / T1 / S1,S2	4	F / T3 / S1,S2	2					
+4.2	S.PT	I,X / T2 / S1,S2	4	F / T1 / S1,S2	2					
+4.2	S.PT	I,X / T3 / S1,S2	4	F / T2 / S1,S2	2					
+4.2		mean								
+4.2		std								
+5.1	P.TS	F / T1 / S1	1	F / T2 / S2	1					
+5.1	P.TS	F / T2 / S1	1	F / T3 / S2	1					
+5.1	P.TS	F / T3 / S1	1	F / T1 / S2	1					
+5.1	P.TS	F / T2 / S1	1	F / T1 / S2	1					
+5.1	P.TS	F / T3 / S1	1	F / T2 / S2	1					
+5.1	P.TS	F / T1 / S1	1	F / T3 / S2	1					
+5.1	P.TS	I / T1 / S1	1	I / T2 / S2	1					
+5.1	P.TS	I / T2 / S1	1	I / T3 / S2	1					
+5.1	P.TS	I / T3 / S1	1	I / T1 / S2	1					
+5.1	P.TS	I / T2 / S1	1	I / T1 / S2	1					
+5.1	P.TS	I / T3 / S1	1	I / T2 / S2	1					
+5.1	P.TS	I / T1 / S1	1	I / T3 / S2	1					
+5.1	P.TS	X / T1 / S1	1	X / T2 / S2	1					
+5.1	P.TS	X / T2 / S1	1	X / T3 / S2	1					
+5.1	P.TS	X / T3 / S1	1	X / T1 / S2	1					
+5.1	P.TS	X / T2 / S1	1	X / T1 / S2	1					
+5.1	P.TS	X / T3 / S1	1	X / T2 / S2	1					
+5.1	P.TS	X / T1 / S1	1	X / T3 / S2	1					
+5.1		mean								
+5.1		std								
+5.2	P.TS	F / T2 / S2	1	F / T1 / S1	1					
+5.2	P.TS	F / T3 / S2	1	F / T2 / S1	1					
+5.2	P.TS	F / T1 / S2	1	F / T3 / S1	1					
+5.2	P.TS	F / T1 / S2	1	F / T2 / S1	1					
+5.2	P.TS	F / T2 / S2	1	F / T3 / S1	1					
+5.2	P.TS	F / T3 / S2	1	F / T1 / S1	1					
+5.2	P.TS	I / T2 / S2	1	I / T1 / S1	1					
+5.2	P.TS	I / T3 / S2	1	I / T2 / S1	1					
+5.2	P.TS	I / T1 / S2	1	I / T3 / S1	1					
+5.2	P.TS	I / T1 / S2	1	I / T2 / S1	1					
+5.2	P.TS	I / T2 / S2	1	I / T3 / S1	1					
+5.2	P.TS	I / T3 / S2	1	I / T1 / S1	1					
+5.2	P.TS	X / T2 / S2	1	X / T1 / S1	1					
+5.2	P.TS	X / T3 / S2	1	X / T2 / S1	1					
+5.2	P.TS	X / T1 / S2	1	X / T3 / S1	1					
+5.2	P.TS	X / T1 / S2	1	X / T2 / S1	1					
+5.2	P.TS	X / T2 / S2	1	X / T3 / S1	1					
+5.2	P.TS	X / T3 / S2	1	X / T1 / S1	1					
+5.2		mean								
+5.2		std								

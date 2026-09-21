@@ -1,0 +1,172 @@
+scenario,variation,description,rotation,gallery_platforms,gallery_topics,gallery_sessions,probe_platforms,probe_topics,probe_sessions,gallery_samples_per_user,probe_samples_per_user
+1.1,PT.S,"Cross-session, same platform and topic",F-T1>F-T1,1,1,1,1,1,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",F-T2>F-T2,1,2,1,1,2,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",F-T3>F-T3,1,3,1,1,3,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",I-T1>I-T1,2,1,1,2,1,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",I-T2>I-T2,2,2,1,2,2,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",I-T3>I-T3,2,3,1,2,3,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",X-T1>X-T1,3,1,1,3,1,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",X-T2>X-T2,3,2,1,3,2,2,1,1
+1.1,PT.S,"Cross-session, same platform and topic",X-T3>X-T3,3,3,1,3,3,2,1,1
+1.2,PT.S,"Cross-session, same platform and topic",F-T1>F-T1,1,1,2,1,1,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",F-T2>F-T2,1,2,2,1,2,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",F-T3>F-T3,1,3,2,1,3,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",I-T1>I-T1,2,1,2,2,1,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",I-T2>I-T2,2,2,2,2,2,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",I-T3>I-T3,2,3,2,2,3,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",X-T1>X-T1,3,1,2,3,1,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",X-T2>X-T2,3,2,2,3,2,1,1,1
+1.2,PT.S,"Cross-session, same platform and topic",X-T3>X-T3,3,3,2,3,3,1,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T1>I-T1,1,1,1,2,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T2>I-T2,1,2,1,2,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T3>I-T3,1,3,1,2,3,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T1>X-T1,1,1,1,3,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T2>X-T2,1,2,1,3,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",F-T3>X-T3,1,3,1,3,3,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T1>X-T1,2,1,1,3,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T2>X-T2,2,2,1,3,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T3>X-T3,2,3,1,3,3,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T1>F-T1,2,1,1,1,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T2>F-T2,2,2,1,1,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",I-T3>F-T3,2,3,1,1,3,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T1>F-T1,3,1,1,1,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T2>F-T2,3,2,1,1,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T3>F-T3,3,3,1,1,3,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T1>I-T1,3,1,1,2,1,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T2>I-T2,3,2,1,2,2,2,1,1
+2.1,T.PS,"Cross-platform and cross-session, same topic",X-T3>I-T3,3,3,1,2,3,2,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T1>I-T1,1,1,2,2,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T2>I-T2,1,2,2,2,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T3>I-T3,1,3,2,2,3,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T1>X-T1,1,1,2,3,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T2>X-T2,1,2,2,3,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",F-T3>X-T3,1,3,2,3,3,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T1>X-T1,2,1,2,3,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T2>X-T2,2,2,2,3,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T3>X-T3,2,3,2,3,3,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T1>F-T1,2,1,2,1,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T2>F-T2,2,2,2,1,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",I-T3>F-T3,2,3,2,1,3,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T1>F-T1,3,1,2,1,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T2>F-T2,3,2,2,1,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T3>F-T3,3,3,2,1,3,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T1>I-T1,3,1,2,2,1,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T2>I-T2,3,2,2,2,2,1,1,1
+2.2,T.PS,"Cross-platform and cross-session, same topic",X-T3>I-T3,3,3,2,2,3,1,1,1
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T1>I-T1,1,1,"1,2",2,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T2>I-T2,1,2,"1,2",2,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T3>I-T3,1,3,"1,2",2,3,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T1>X-T1,1,1,"1,2",3,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T2>X-T2,1,2,"1,2",3,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",F-T3>X-T3,1,3,"1,2",3,3,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T1>X-T1,2,1,"1,2",3,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T2>X-T2,2,2,"1,2",3,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T3>X-T3,2,3,"1,2",3,3,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T1>F-T1,2,1,"1,2",1,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T2>F-T2,2,2,"1,2",1,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",I-T3>F-T3,2,3,"1,2",1,3,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T1>F-T1,3,1,"1,2",1,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T2>F-T2,3,2,"1,2",1,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T3>F-T3,3,3,"1,2",1,3,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T1>I-T1,3,1,"1,2",2,1,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T2>I-T2,3,2,"1,2",2,2,"1,2",2,2
+3.1,TS.P,"Cross-platform, pooled sessions, single-platform gallery",X-T3>I-T3,3,3,"1,2",2,3,"1,2",2,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",FI-T1>X-T1,"1,2",1,"1,2",3,1,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",FI-T2>X-T2,"1,2",2,"1,2",3,2,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",FI-T3>X-T3,"1,2",3,"1,2",3,3,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",IX-T1>F-T1,"2,3",1,"1,2",1,1,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",IX-T2>F-T2,"2,3",2,"1,2",1,2,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",IX-T3>F-T3,"2,3",3,"1,2",1,3,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",XF-T1>I-T1,"3,1",1,"1,2",2,1,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",XF-T2>I-T2,"3,1",2,"1,2",2,2,"1,2",4,2
+3.2,TS.P,"Cross-platform, pooled sessions, two-platform gallery",XF-T3>I-T3,"3,1",3,"1,2",2,3,"1,2",4,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T1>I-T2,1,1,"1,2",2,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T1>I-T3,1,1,"1,2",2,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T1>X-T2,1,1,"1,2",3,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T1>X-T3,1,1,"1,2",3,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T2>I-T1,1,2,"1,2",2,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T2>I-T3,1,2,"1,2",2,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T2>X-T1,1,2,"1,2",3,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T2>X-T3,1,2,"1,2",3,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T3>I-T1,1,3,"1,2",2,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T3>I-T2,1,3,"1,2",2,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T3>X-T1,1,3,"1,2",3,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",F-T3>X-T2,1,3,"1,2",3,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T1>F-T2,2,1,"1,2",1,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T1>F-T3,2,1,"1,2",1,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T1>X-T2,2,1,"1,2",3,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T1>X-T3,2,1,"1,2",3,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T2>F-T1,2,2,"1,2",1,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T2>F-T3,2,2,"1,2",1,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T2>X-T1,2,2,"1,2",3,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T2>X-T3,2,2,"1,2",3,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T3>F-T1,2,3,"1,2",1,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T3>F-T2,2,3,"1,2",1,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T3>X-T1,2,3,"1,2",3,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",I-T3>X-T2,2,3,"1,2",3,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T1>F-T2,3,1,"1,2",1,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T1>F-T3,3,1,"1,2",1,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T1>I-T2,3,1,"1,2",2,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T1>I-T3,3,1,"1,2",2,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T2>F-T1,3,2,"1,2",1,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T2>F-T3,3,2,"1,2",1,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T2>I-T1,3,2,"1,2",2,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T2>I-T3,3,2,"1,2",2,3,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T3>F-T1,3,3,"1,2",1,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T3>F-T2,3,3,"1,2",1,2,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T3>I-T1,3,3,"1,2",2,1,"1,2",2,2
+4.1,S.PT,"Cross-platform and cross-topic, pooled sessions, single-platform gallery",X-T3>I-T2,3,3,"1,2",2,2,"1,2",2,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T1>X-T2,"1,2",1,"1,2",3,2,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T2>X-T3,"1,2",2,"1,2",3,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T3>X-T1,"1,2",3,"1,2",3,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T1>X-T3,"1,2",1,"1,2",3,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T2>X-T1,"1,2",2,"1,2",3,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FI-T3>X-T2,"1,2",3,"1,2",3,2,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T1>I-T2,"1,3",1,"1,2",2,2,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T2>I-T3,"1,3",2,"1,2",2,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T3>I-T1,"1,3",3,"1,2",2,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T1>I-T3,"1,3",1,"1,2",2,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T2>I-T1,"1,3",2,"1,2",2,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",FX-T3>I-T2,"1,3",3,"1,2",2,2,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T1>F-T2,"2,3",1,"1,2",1,2,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T2>F-T3,"2,3",2,"1,2",1,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T3>F-T1,"2,3",3,"1,2",1,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T1>F-T3,"2,3",1,"1,2",1,3,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T2>F-T1,"2,3",2,"1,2",1,1,"1,2",4,2
+4.2,S.PT,"Cross-platform and cross-topic, pooled sessions, two-platform gallery",IX-T3>F-T2,"2,3",3,"1,2",1,2,"1,2",4,2
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T1>F-T2,1,1,1,1,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T2>F-T3,1,2,1,1,3,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T3>F-T1,1,3,1,1,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T2>F-T1,1,2,1,1,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T3>F-T2,1,3,1,1,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",F-T1>F-T3,1,1,1,1,3,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T1>I-T2,2,1,1,2,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T2>I-T3,2,2,1,2,3,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T3>I-T1,2,3,1,2,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T2>I-T1,2,2,1,2,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T3>I-T2,2,3,1,2,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",I-T1>I-T3,2,1,1,2,3,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T1>X-T2,3,1,1,3,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T2>X-T3,3,2,1,3,3,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T3>X-T1,3,3,1,3,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T2>X-T1,3,2,1,3,1,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T3>X-T2,3,3,1,3,2,2,1,1
+5.1,P.TS,"Cross-topic and cross-session, same platform",X-T1>X-T3,3,1,1,3,3,2,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T2>F-T1,1,2,2,1,1,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T3>F-T2,1,3,2,1,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T1>F-T3,1,1,2,1,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T1>F-T2,1,1,2,1,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T2>F-T3,1,2,2,1,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",F-T3>F-T1,1,3,2,1,1,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T2>I-T1,2,2,2,2,1,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T3>I-T2,2,3,2,2,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T1>I-T3,2,1,2,2,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T1>I-T2,2,1,2,2,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T2>I-T3,2,2,2,2,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",I-T3>I-T1,2,3,2,2,1,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T2>X-T1,3,2,2,3,1,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T3>X-T2,3,3,2,3,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T1>X-T3,3,1,2,3,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T1>X-T2,3,1,2,3,2,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T2>X-T3,3,2,2,3,3,1,1,1
+5.2,P.TS,"Cross-topic and cross-session, same platform",X-T3>X-T1,3,3,2,3,1,1,1,1

@@ -2,3 +2,13 @@
 tmp/
 
 .DS_Store
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# Private working copies of the original code. Never committed; deleted before publishing.
+temp-repos/
+
+# Assistant session state, not part of the artifact.
+.claude/

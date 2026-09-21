@@ -1,0 +1,32 @@
+Dataset license
+Created: 2026-09-21
+
+The data in this directory — keystroke timings, response texts, extracted key
+pairs and aggregate features from 61 participants — is made available under the
+Creative Commons Attribution 4.0 International license (CC BY 4.0).
+
+You may share and adapt it for any purpose, including commercially, provided
+you give appropriate credit. Full license text:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution
+-----------
+Credit the dataset by citing the paper it was collected for:
+
+  Kuruvilla, A., Pickering, L., Rentala, I., and Kumar, R. "Context-Robust
+  Identity Linkage in Social Media via Keystroke Dynamics." Proceedings of the
+  IEEE International Conference on Tools with Artificial Intelligence (ICTAI),
+  2026.
+
+The BibTeX entry and, once the proceedings are published, the DOI and page
+numbers are in the repository's root README and CITATION.cff.
+
+A request that is not a license condition
+-----------------------------------------
+Participants took part on the understanding that their data would be published
+in anonymized form. Participant IDs are random and carry no identifying
+information. We ask that you do not attempt to re-identify participants or to
+link these records to other data about individuals.
+
+The code in this repository is licensed separately, under the MIT license in
+the repository root.

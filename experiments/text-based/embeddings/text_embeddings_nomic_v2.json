@@ -1,0 +1,23 @@
+{
+  "embedding_model": {
+    "name": "text-embedding-nomic-embed-text-v2",
+    "requested_model": "text-embedding-nomic-embed-text-v2",
+    "embedding_dimension": 768,
+    "normalized": true
+  },
+  "lm_studio": {
+    "host": "localhost",
+    "port": 1234,
+    "endpoint": "http://localhost:1234/v1/embeddings"
+  },
+  "dataset": {
+    "num_samples": 1098,
+    "num_users": 61,
+    "num_platforms": 3,
+    "num_videos": 3,
+    "num_sessions": 2,
+    "text_data_path": "datasets/clean-data/dataset/text"
+  },
+  "generated_at": "2025-12-08T15:39:16.136260",
+  "output_file": "experiments/text-based/embeddings/text_embeddings_nomic_v2.csv"
+}

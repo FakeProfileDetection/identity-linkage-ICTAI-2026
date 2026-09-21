@@ -19,9 +19,9 @@ We claim copyright only over our own contributions to those directories, and lic
 those contributions under the MIT terms in `LICENSE`. We grant no rights in the
 underlying third-party material, because we hold none to grant.
 
-`datasets/` holds human-subjects research data and is likewise not covered by the MIT
-license. Its terms have not been settled yet; until they are, treat it as all rights
-reserved.
+`datasets/clean-data/` holds human-subjects research data and is likewise not covered
+by the MIT license. It is released under CC BY 4.0; its own `LICENSE` states the
+terms and how to credit it (by citing the paper).
 
 **If you are a rights holder** and object to anything included here, open an issue and
 we will remove it.

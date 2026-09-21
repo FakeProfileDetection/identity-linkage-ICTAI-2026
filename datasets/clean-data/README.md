@@ -8,6 +8,13 @@ Our web app is self-supervised, relying on the app itself to control the user’
 
 In this paper, we describe our data collection process, our web app, participants, and the dataset.  Our dataset consists of text and keystroke data for 61 users on 3 social media clones commenting on three different videos for two sessions, comprising 18 samples per user.
 
+## License and citation
+
+The data is released under [CC BY 4.0](LICENSE): use it for anything, and
+credit it by citing the paper it was collected for (the BibTeX entry is in the
+repository's root README). We ask that you do not attempt to re-identify
+participants.
+
 ## Table of Contents
 
 - [Study Design](#study-design)

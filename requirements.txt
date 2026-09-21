@@ -1,0 +1,14 @@
+# Created: 2026-09-20
+# Versions are the ones the analysis was last run with.
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+matplotlib>=3.7
+seaborn>=0.13
+scikit-posthocs>=0.9
+scikit-learn>=1.3
+
+# text-based representations
+nltk>=3.8            # part-of-speech tagging for the CB-POS and CB-FuncW rewrites
+requests>=2.31       # talking to LM Studio to make embeddings
+# sentence-transformers>=3.0   optional: make embeddings without LM Studio

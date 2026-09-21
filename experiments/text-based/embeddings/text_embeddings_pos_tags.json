@@ -1,0 +1,23 @@
+{
+  "embedding_model": {
+    "name": "text-embedding-nomic-embed-text-v2",
+    "embedding_dimension": 768,
+    "normalized": true
+  },
+  "transform": {
+    "name": "pos_tags",
+    "description": "Replace content words (nouns, verbs, adjectives, adverbs) with POS tags"
+  },
+  "lm_studio": {
+    "host": "localhost",
+    "port": 1234,
+    "endpoint": "http://localhost:1234/v1/embeddings"
+  },
+  "dataset": {
+    "num_samples": 1098,
+    "num_users": 61,
+    "text_data_path": "datasets/clean-data/dataset/text"
+  },
+  "generated_at": "2026-01-24T22:14:28.976333",
+  "output_file": "experiments/text-based/embeddings/text_embeddings_pos_tags.csv"
+}
