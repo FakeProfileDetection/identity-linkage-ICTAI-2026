@@ -15,10 +15,10 @@ Incidental issues found while working, deferred rather than fixed.
   `*.toml`, and `*.md` are invisible to it — including `"Your Information"` in
   `pages/hosting/Informed Consent.md`, which the README tells adopters to fill in.
 
-## `wasm-keystroke-capture/Cargo.lock` is gitignored
+## `wasm-keystroke-capture/Cargo.lock` — resolved 2026-09-21
 
-`web-data-collection-gcs/.gitignore:10` ignores the lock file, but `pkg/` — the build
-output — is committed and served to participants. So the one artifact that must be
-reproducible is built from unpinned dependencies: the 2026-09-20 rebuild picked up
-`once_cell` 1.21.3 → 1.21.4 and `wasm-bindgen` 0.2.100 → 0.2.128 with no source
-change. For a citable artifact the lock file should be committed instead.
+Was gitignored while `pkg/`, the build output served to participants, was
+committed, so the one artifact that must be reproducible was built from
+unpinned dependencies. Now generated and committed; it pins `wasm-bindgen`
+0.2.128 and `once_cell` 1.21.4, the versions the 2026-09-20 rebuild of `pkg/`
+used, so the committed module and its lock file agree.

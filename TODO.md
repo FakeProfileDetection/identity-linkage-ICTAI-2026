@@ -129,9 +129,10 @@ remains is on the writer's side.
   Deleted 2026-09-20.
 - [x] `.claude/` added to `.gitignore`; `features_all_keys.parquet` removed,
   byte-identical to `features.parquet` (2026-09-20).
-- [ ] `SESSION.md` lists deferred issues in `web-data-collection-gcs/configure.sh`
-  and the ignored `Cargo.lock`. Fix or consciously leave; it is deleted with the
-  other notes at the end either way.
+- [x] `Cargo.lock` for the WASM module generated and committed 2026-09-21 (Lori);
+  it pins the versions the committed `pkg/` was built from. The `configure.sh`
+  limitations in `SESSION.md` are left as documented; that file goes with the
+  other notes at the end.
 
 ---
 

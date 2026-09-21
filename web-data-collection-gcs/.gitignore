@@ -5,9 +5,9 @@ node_modules/
 dist/
 build/
 
-# Rust/WASM build artifacts
+# Rust/WASM build artifacts. Cargo.lock is committed on purpose: pkg/ is the
+# module participants run, and the lock file is what makes it rebuild the same.
 wasm-keystroke-capture/target/
-wasm-keystroke-capture/Cargo.lock
 
 # NOTE: wasm-keystroke-capture/pkg/ is intentionally NOT ignored. The study
 # pages are served as static files and load pkg/keystroke_capture.js directly
