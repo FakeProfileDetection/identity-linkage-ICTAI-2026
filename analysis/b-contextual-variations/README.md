@@ -1,6 +1,7 @@
 # Effect of contextual variation
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 This is Section IV-B of the paper and its Figure 3. The question it answers:
 when one thing changes between the enrolled data and the data to identify —
@@ -13,8 +14,8 @@ python contextual_effects.py     # a few seconds
 ```
 
 It reads `../../experiments/results/scenario-results.csv` and writes
-`variable_effect_heatmap.png` (Figure 3), `effect_size_heatmap.png` and
-`contextual_effects.csv`.
+`variable_effect_heatmap.pdf` (Figure 3, for the paper), `effect_size_heatmap.pdf`,
+a PNG of each for this page, and `contextual_effects.csv`.
 
 ## The four comparisons
 
@@ -54,8 +55,11 @@ comparison reads the other way round**: its reference is the larger gallery
 ![Figure 3: ΔAUK for each representation and factor](variable_effect_heatmap.png)
 
 This is Figure 3. Each cell is ΔAUK for one representation (row) and one
-factor (column). Red cells are significant after correction, with the stars
-giving the level; green cells are not. The rows are grouped as in Table III:
+factor (column). Cells are shaded on one grey scale by their Bonferroni-corrected
+p-value: white is not significant, and the darker the cell the smaller the
+p-value, with the stars giving the level. One shade rather than the usual green
+and red keeps the figure readable for colour-blind readers and in a
+black-and-white print. The rows are grouped as in Table III:
 text representations (*t*), score-level fusion (*t+k*) and keystroke
 representations (*k*).
 
@@ -90,7 +94,7 @@ the session, platform, gallery-size, or topic change under evaluation. Positive
 values indicate lower performance under the varied condition, negative values
 indicate improvement, and values near zero indicate little change. Statistical
 tests were applied to the underlying rotation-level AUK measurements rather
-than to the aggregated ΔAUK values shown in the figure. Cell colors indicate
+than to the aggregated ΔAUK values shown in the figure. Cell shading indicates
 the corresponding Bonferroni-corrected significance results.
 
 **Session variation** is evaluated using the two PT·S configurations, which

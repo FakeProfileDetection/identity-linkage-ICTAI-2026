@@ -1,6 +1,7 @@
 """Figure 3: the effect of session, platform, gallery size, and topic.
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 Each of the four contextual factors is isolated by comparing two gallery-probe
 configurations that differ only in that factor:
@@ -28,6 +29,12 @@ smaller of the two.
 P-values are Bonferroni corrected over all 32 comparisons in the figure: eight
 representations times one comparison for session and for size, and eight times
 two comparisons for platform and for topic.
+
+Each heatmap is written as a PDF for the paper and a PNG for the README.  The
+cells are shaded on a single grey ramp, white for not significant through dark
+grey for p < 0.001, so the figure reads the same for colour-blind readers and
+in a black-and-white print; the stars and bold text repeat the same
+information.
 
     python contextual_effects.py
 """
@@ -130,23 +137,36 @@ def stars(p):
     return ""
 
 
-def draw(records, value="delta", title="Δ AUK", filename="variable_effect_heatmap.png"):
-    """Cells are coloured by how significant they are, green to red.
+def draw(records, value="delta", title="Δ AUK", stem="variable_effect_heatmap"):
+    """Cells are shaded by how significant they are, white to dark grey.
 
     `value` picks what the cells report: the change in AUK, or the
-    rank-biserial effect size `r` that goes with the same test.
+    rank-biserial effect size `r` that goes with the same test.  The figure
+    is written as `<stem>.pdf` and `<stem>.png`.
+
+    The shade follows -log10 of the corrected p-value on one grey ramp, so a
+    darker cell always means a smaller p-value.  A single hue is used rather
+    than the usual green-to-red so that readers with colour-vision deficiency,
+    and a black-and-white print, see the same figure as everyone else.
     """
     significance = np.array([[-np.log10(max(r[f]["p"], 1e-10)) for f in FACTORS] for r in records])
 
     fig, ax = plt.subplots(figsize=(5.5, 3.0))
     cmap = LinearSegmentedColormap.from_list("significance", [
-        (0.00, "#c8e6c9"),   # not significant
-        (0.10, "#e8f5e9"),
-        (0.20, "#ffffff"),   # around p = 0.05
-        (0.45, "#ffcdd2"),
-        (1.00, "#ef5350"),   # p < 0.001
+        (0.00, "#ffffff"),   # not significant
+        (0.26, "#f0f0f0"),   # p = 0.05
+        (0.40, "#8c8c8c"),   # p = 0.01
+        (0.60, "#5a5a5a"),   # p = 0.001
+        (1.00, "#262626"),   # far below p = 0.001
     ], N=256)
     ax.imshow(significance, cmap=cmap, aspect="auto", vmin=0, vmax=5.0)
+
+    # Light grey lines between the cells, so that neighbouring white cells
+    # still read as separate cells.
+    ax.set_xticks(np.arange(-0.5, len(FACTORS)), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(records)), minor=True)
+    ax.grid(which="minor", color="#d9d9d9", linewidth=0.5)
+    ax.tick_params(which="minor", length=0)
 
     for i, record in enumerate(records):
         for j, factor in enumerate(FACTORS):
@@ -154,7 +174,9 @@ def draw(records, value="delta", title="Δ AUK", filename="variable_effect_heatm
             ax.text(j, i, f"{cell[value]:+.3f}{stars(cell['p'])}",
                     ha="center", va="center", fontsize=8,
                     fontweight="bold" if cell["p"] < 0.05 else "normal",
-                    color="white" if significance[i, j] >= 4.0 else "black")
+                    # White text on the two- and three-star cells, which
+                    # are dark enough that black is hard to read.
+                    color="white" if significance[i, j] >= 2.0 else "black")
 
     # Separate the representations by modality, as Table III groups them.
     row = 0
@@ -169,15 +191,16 @@ def draw(records, value="delta", title="Δ AUK", filename="variable_effect_heatm
     ax.set_xticklabels(FACTORS, fontsize=10, fontweight="bold")
     ax.set_yticks(range(len(records)))
     ax.set_yticklabels([r["representation"] for r in records], fontsize=9)
-    ax.set_title(f"Variable Effect by Model\n({title}, colored by significance)", fontsize=11, pad=10)
+    ax.set_title(f"Variable Effect by Model\n({title}, shaded by significance)", fontsize=11, pad=10)
     ax.text(0.5, -0.22,
             "*** p<0.001 (99.9%)   ** p<0.01 (99%)   * p<α (95%)   no star = ns   α=0.05",
             transform=ax.transAxes, ha="center", fontsize=7, color="black")
 
     fig.tight_layout()
-    fig.savefig(HERE / filename, dpi=300, bbox_inches="tight")
+    for suffix in (".pdf", ".png"):
+        fig.savefig(HERE / (stem + suffix), dpi=300, bbox_inches="tight")
+        print(f"  wrote {stem}{suffix}")
     plt.close(fig)
-    print(f"  wrote {filename}")
 
 
 def main():
@@ -185,7 +208,7 @@ def main():
     draw(records)
     # The same comparisons reported as effect size rather than change in AUK.
     # This one is not in the paper; it was left out for space.
-    draw(records, value="r", title="effect size r", filename="effect_size_heatmap.png")
+    draw(records, value="r", title="effect size r", stem="effect_size_heatmap")
 
     table = pd.DataFrame([
         {"representation": r["representation"], "factor": f,
