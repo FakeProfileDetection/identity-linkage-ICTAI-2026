@@ -1,6 +1,7 @@
 # Overall identity linkage performance
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 This is Section IV-A of the paper and its Figure 2. The question:
 across the ten gallery–probe configurations, how accurately does each identity
@@ -13,8 +14,10 @@ python plot_heatmaps.py     # a few seconds
 ```
 
 It reads `../../experiments/results/scenario-results.csv` and writes
-`accuracy_heatmap_k1.png`, `accuracy_heatmap_k3.png` and `accuracy_heatmap_k5.png`,
-the three panels of Figure 2.
+`accuracy_heatmaps.pdf`, Figure 2 as the paper prints it (the three panels
+stacked with one colour bar, sized for a single column), a PNG of the same
+figure for this page, and `accuracy_heatmap_k1.png`, `accuracy_heatmap_k3.png`
+and `accuracy_heatmap_k5.png`, the three panels one per file.
 
 ## The configurations
 
@@ -36,11 +39,10 @@ probe, and two or four enrolled observations per person.
 
 ## The figures
 
-![Figure 2, top panel: mean ACC@1](accuracy_heatmap_k1.png)
-![Figure 2, middle panel: mean ACC@3](accuracy_heatmap_k3.png)
-![Figure 2, bottom panel: mean ACC@5](accuracy_heatmap_k5.png)
+![Figure 2: mean ACC@1 (top), ACC@3 (middle) and ACC@5 (bottom)](accuracy_heatmaps.png)
 
-These three are the panels of Figure 2. A cell is the share of probes whose
+This is Figure 2; the three panels are also written one per file as
+`accuracy_heatmap_k{1,3,5}.png`. A cell is the share of probes whose
 correct identity was ranked in the top 1, 3 or 5 of the 61 enrolled people,
 averaged over the platform–topic rotations that the configuration covers (9,
 18 or 36 rotations; see `../../experiments/gallery-probe-configurations/`).

@@ -1,7 +1,7 @@
 # Corrections needed in the paper
 
 Created: 2026-09-20
-Updated: 2026-09-20
+Updated: 2026-09-25
 
 For whoever is editing the manuscript. Each item says what the paper currently
 says, what is true, and gives replacement text in the paper's voice. **Text in
@@ -358,7 +358,7 @@ and outliers removed. The regenerated figures are in the repo:
 
 | Paper | File |
 |---|---|
-| Figure 2 (three panels) | `analysis/a-overall-identity-linkage/accuracy_heatmap_k{1,3,5}.png` |
+| Figure 2 (three panels stacked, for the paper) | `analysis/a-overall-identity-linkage/accuracy_heatmaps.pdf` (panels one per file: `accuracy_heatmap_k{1,3,5}.png`) |
 | Figure 3 | `analysis/b-contextual-variations/variable_effect_heatmap.png` |
 | Figure 4 | `analysis/d-statistical-analysis/rank_heatmap.png` |
 | Friedman / Nemenyi / ranks | `analysis/d-statistical-analysis/*.csv` |

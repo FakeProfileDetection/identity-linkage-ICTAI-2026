@@ -1,7 +1,7 @@
 # Analysis
 
 Created: 2026-09-20
-Updated: 2026-09-20
+Updated: 2026-09-25
 
 Everything here reads one file, `experiments/results/scenario-results.csv`, and
 writes the figures and tables of Section IV of the paper. The subdirectories
@@ -28,8 +28,8 @@ RESULTS_CSV=../experiments/results/as-published/scenario-results.csv ./run_all.s
 
 | Directory | Paper | Script | Output |
 |---|---|---|---|
-| `a-overall-identity-linkage/` | Section IV-A, Figure 2 | `plot_heatmaps.py` | `accuracy_heatmap_k{1,3,5}.png`; its README explains the figure |
-| `b-contextual-variations/` | Section IV-B, Figure 3 | `contextual_effects.py` | `variable_effect_heatmap.png`, `contextual_effects.csv`, `effect_size_heatmap.png`; its README explains the comparisons and the plots |
+| `a-overall-identity-linkage/` | Section IV-A, Figure 2 | `plot_heatmaps.py` | `accuracy_heatmaps.pdf` (the figure for the paper) and `.png`, plus `accuracy_heatmap_k{1,3,5}.png` one panel per file; its README explains the figure |
+| `b-contextual-variations/` | Section IV-B, Figure 3 | `contextual_effects.py` | `variable_effect_heatmap.pdf` (the figure for the paper) and `.png`, `effect_size_heatmap.pdf` and `.png`, `contextual_effects.csv`; its README explains the comparisons and the plots |
 | `c-multi-modal-fusion/` | Section IV-C | `fusion_weights.py` | `fusion_weights.csv`, `fusion_weight_sweep.png`; its README explains the sweep |
 | `d-statistical-analysis/` | Section IV-D, Figure 4 | `compare_representations.py` | `rank_heatmap.png`, `friedman_results.csv`, `average_ranks.csv`, `nemenyi_<scenario>.csv`; its README explains the tests and Figure 4 |
 | `extra-plots/` | not in the paper | four scripts, see below | supporting views that were cut for space |
@@ -39,7 +39,7 @@ eight representations in the order the paper uses them, the ten configurations,
 and the colours. Setting `RESULTS_CSV` (a path relative to this directory)
 makes every script read a different combined file.
 
-`effect_size_heatmap.png`, next to Figure 3, is not in the paper. It shows the
+`effect_size_heatmap.pdf`, next to Figure 3, is not in the paper. It shows the
 rank-biserial correlation for the same 32 comparisons: −1 means every rotation
 of the varied configuration scored below every rotation of the reference, +1
 the reverse, 0 no tendency. It saturates at −1 for every text and fusion
