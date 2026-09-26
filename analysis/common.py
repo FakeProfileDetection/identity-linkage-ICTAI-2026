@@ -1,6 +1,7 @@
 """Settings shared by the analysis scripts.
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 Every analysis reads the same file, experiments/results/scenario-results.csv,
 which holds ACC@k for k = 1..5 for each of the 171 gallery-probe rotations and
@@ -88,28 +89,38 @@ def light_greens(reverse=False):
     return cmap.reversed() if reverse else cmap
 
 
-def heatmap(table, title, colorbar_label, path, fmt, cmap, vmin=None, vmax=None):
-    """Draw one annotated heatmap in the style shared by Figures 2 and 4."""
+def heatmap(table, title, colorbar_label, path, fmt, cmap, vmin=None, vmax=None,
+            tick_prefix="Scenario ", figsize=(14, 5), colorbar_label_size=18):
+    """Draw one annotated heatmap in the style shared by Figures 2 and 4.
+
+    title=None leaves the title off, as the paper's Figure 4 does.  tick_prefix
+    is put before every column label; the paper's figures use "" because the
+    axis is already labelled "Scenario".  path may be a list, for a PDF and
+    a PNG of the same figure.  colorbar_label_size is lowered for a short
+    figure whose colour bar is shorter than its label would be.
+    """
     import matplotlib.pyplot as plt
     import seaborn as sns
 
-    fig, ax = plt.subplots(figsize=(14, 5))
+    fig, ax = plt.subplots(figsize=figsize)
     drawn = sns.heatmap(
         table, annot=True, fmt=fmt, annot_kws={"size": 18}, cmap=cmap,
         vmin=vmin, vmax=vmax, linewidths=0.5, linecolor="white", ax=ax,
         cbar_kws={"label": colorbar_label},
-        xticklabels=[f"Scenario {s}" for s in table.columns],
+        xticklabels=[f"{tick_prefix}{s}" for s in table.columns],
     )
     bar = drawn.collections[0].colorbar
-    bar.set_label(colorbar_label, fontsize=18, fontweight="bold")
+    bar.set_label(colorbar_label, fontsize=colorbar_label_size, fontweight="bold")
     bar.ax.tick_params(labelsize=14)
 
     ax.set_xlabel("Scenario", fontsize=20, fontweight="bold")
     ax.set_ylabel("Model", fontsize=20, fontweight="bold")
-    ax.set_title(title, fontsize=20, fontweight="bold", pad=15)
+    if title:
+        ax.set_title(title, fontsize=20, fontweight="bold", pad=15)
     plt.xticks(rotation=45, ha="right", fontsize=16)
     plt.yticks(rotation=0, fontsize=16)
     plt.tight_layout()
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    for one in path if isinstance(path, (list, tuple)) else [path]:
+        plt.savefig(one, dpi=200, bbox_inches="tight")
+        print(f"  wrote {one.name}")
     plt.close()
-    print(f"  wrote {path.name}")

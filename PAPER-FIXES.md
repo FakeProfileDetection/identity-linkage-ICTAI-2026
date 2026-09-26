@@ -360,7 +360,7 @@ and outliers removed. The regenerated figures are in the repo:
 |---|---|
 | Figure 2 (three panels stacked, for the paper) | `analysis/a-overall-identity-linkage/accuracy_heatmaps.pdf` (panels one per file: `accuracy_heatmap_k{1,3,5}.png`) |
 | Figure 3 | `analysis/b-contextual-variations/variable_effect_heatmap.png` |
-| Figure 4 | `analysis/d-statistical-analysis/rank_heatmap.png` |
+| Figure 4 | `analysis/d-statistical-analysis/rank_heatmap.pdf` (PNG alongside) |
 | Friedman / Nemenyi / ranks | `analysis/d-statistical-analysis/*.csv` |
 
 C-Emb-Nomic and the three fusion representations move by at most 0.01 in any
@@ -701,6 +701,71 @@ Note that the Random Forest now pools the two probe sessions in 3.x/4.x (item
 3), which is why 3.x and 4.x are well above 1.x and 5.x for it.]*
 
 
+### Shortened Section IV-B and Figure 3 caption, paste-ready (2026-09-25)
+
+The section above cut to about half its length, with items 1 (ΔAUK → ΔA),
+7 and 9 applied and every number checked against
+`analysis/b-contextual-variations/contextual_effects.csv`. What is new in
+substance, beyond the cuts: the first paragraph says that for gallery size the
+smaller gallery is the varied configuration, so the sign rule holds for that
+column too; the Size column, which the paper never discussed, gets one
+sentence in the last subsection, whose heading gains "and Gallery Size"; the
+session paragraph names the one significant cell. The definition and sign
+convention that the caption now carries are stated once in the text and not
+repeated. Labels and notation follow the source: `fig:heatmap_confounding`,
+`fig:model-mean-accuracy`, `eq:auk`, `eq:delta-auk`, `$PT\cdot S$`, `ACC@$K$`.
+The same text is in `section-IV-B.tex` at the repo root as plain LaTeX.
+
+```latex
+\caption{Controlled analysis of contextual effects. Each cell is
+$\Delta A = A_{\mathrm{reference}} - A_{\mathrm{varied}}$ for one
+representation and one factor; positive values mean the varied condition
+performed worse. For gallery size the reference is the larger gallery, so
+positive means the larger gallery did better. Shading gives
+Bonferroni-corrected significance over the 32 comparisons, darker for
+smaller $p$; rows are grouped by modality as in Table~III.}
+```
+
+```latex
+\subsection{Effect of Contextual Variation}
+\label{ContextVariation}
+
+Figure~\ref{fig:heatmap_confounding} summarizes the controlled contextual comparisons. For each comparison,
+
+\begin{equation}
+\Delta A
+=
+A_{\mathrm{reference}}
+-
+A_{\mathrm{varied}},
+\label{eq:delta-auk}
+\end{equation}
+
+where $A$ is the normalized area under the CMC curve defined in Eq.~\ref{eq:auk}. The reference configuration is the baseline and the varied configuration adds the session, platform, or topic change under evaluation; for gallery size, the varied configuration is the smaller gallery. Positive values indicate lower identification performance under the varied condition. Statistical tests were applied to the rotation-level values of $A$ rather than to the aggregated $\Delta A$, with Bonferroni correction across the 32 comparisons.
+
+\subsubsection{Session Variation}
+
+The two $PT\cdot S$ configurations reverse the gallery and probe sessions while holding platform and topic fixed, isolating the effect of repeating the collection protocol. Across all representations, $\Delta A$ remains close to zero and, except for CB-ITAD.25 ($p<0.05$), non-significant; Figure~\ref{fig:model-mean-accuracy} likewise shows little difference between the two configurations. The repeated sessions use the same platform and topic, which preserves linguistic similarity, and keystroke timing is stable across repeated observations. Because the sessions are repeated executions of one protocol rather than observations separated by months or years, this supports short-term stability but does not establish long-term permanence.
+
+\subsubsection{Platform Variation}
+
+Comparing the $PT\cdot S$ and $T\cdot PS$ configurations preserves topic and session direction while adding a platform change between gallery and probe. Every $\Delta A$ is below 0.025 and none is significant, and the ACC@$K$ heatmaps are nearly identical across the two groups, so changing the interface alone has little effect when the topic is fixed. This reflects the study design: the replicas standardized the commenting task and minimum response length, and awareness of data collection may influence typing behavior, so absolute performance may differ in natural settings. The interface differences among the three replicas also do not substantially alter the extracted timing features.
+
+\subsubsection{Topic Variation}
+
+Comparing the $PT\cdot S$ and $P\cdot TS$ configurations with the same session direction holds platform constant and makes topic the only additional factor. This produces the clearest separation among the representation families. Text representations show large, highly significant effects ($\Delta A$ of $0.26$--$0.44$, $p<0.001$), the fusion representations follow them ($0.20$--$0.39$), B-ML-RF degrades only modestly ($\Delta A = 0.090$, $p<0.01$), and B-ITAD shows no significant change.
+
+The raw embedding is the most sensitive because it encodes semantic content: under a matched topic, shared semantics raise gallery--probe similarity, and when the topic changes that information no longer reflects identity and may instead raise similarity between different users discussing the same subject. The POS and function-word representations suppress lexical content and degrade less than the raw embedding, but only modestly, which shows that topic influences more than content words: sentence organization, punctuation, function-word usage, and grammatical patterns also vary with topic, and the contextual embedding model continues to encode some of these effects. These representations are topic-reduced rather than topic-independent.
+
+Keystroke-based representations rely on motor behavior rather than linguistic content. B-ML-RF combines the strongest cross-topic discrimination with a small but significant topic effect, whereas B-ITAD has lower absolute accuracy but no significant topic-induced degradation. Topic is therefore the dominant contextual factor: it changes the linguistic artifact itself, whereas platform and short-term session changes alter only the conditions under which it is produced. Text-based representations encode both identity-related and topic-dependent information.
+
+\subsubsection{Joint Variation and Gallery Size}
+
+The remaining configurations vary several factors at once or change the gallery. The $T\cdot PS$ configurations vary platform and session together with topic fixed and perform much like $PT\cdot S$, so combining two individually weak effects adds little degradation. The $TS\cdot P$ configurations pool both sessions and differ in whether the gallery holds one platform or two; the Size column of Figure~\ref{fig:heatmap_confounding} isolates this comparison, and the larger gallery improves every representation, most clearly the text representations ($\Delta A$ of $0.07$--$0.10$, $p<0.001$) and B-ML-RF ($0.058$, $p<0.001$).
+
+The $S\cdot PT$ configurations vary platform and topic while pooling both sessions, the strongest cross-context condition. Their performance resembles the topic-changing $P\cdot TS$ configurations rather than the platform-changing $T\cdot PS$ configurations: text and text-heavy fusion representations degrade substantially, whereas keystroke-based representations remain comparatively stable. Comparing $S\cdot PT$ with $P\cdot TS$ shows the same pattern although one adds platform and the other session variation to the topic change. Once the topic changes, the additional platform or session shift contributes little; the impact of joint variation is governed by how far a representation depends on topic-sensitive information.
+```
+
 ---
 
 ## 10. Section IV-A and the Figure 2 caption, full text with the changes marked
@@ -912,6 +977,28 @@ analysis".]*
 *[Unchanged. Checked: under P·TS, CB-ITAD.75 beats B-ITAD at ACC@1 in both
 configurations (0.21/0.26 against 0.09/0.16) and at ACC@5 in one of two,
 which is what "often" claims.]*
+
+### Shortened Section IV-C, paste-ready (2026-09-25)
+
+The section above with the five numbers updated, ΔAUK → ΔA (item 1), and
+the wording tightened from about 520 to 380 words; every claim is kept.
+Labels and notation follow the source. The same text is in
+`section-IV-B.tex` at the repo root, after IV-B.
+
+```latex
+\subsection{Effect of Multimodal Fusion}
+\label{FusionAnalysis}
+
+We evaluate the three score-level fusion configurations introduced in Section~III-D, which combine the text-embedding similarity $S_t$ and the ITAD keystroke similarity $S_k$ according to Eq.~\ref{fusion-score} with keystroke weight $\alpha \in \{0.25,0.50,0.75\}$; CB-ITAD.25, CB-ITAD.50, and CB-ITAD.75 use $\alpha$ of 0.25, 0.50, and 0.75, respectively. They show how modality weighting affects robustness when a topic-sensitive text representation is combined with a comparatively context-stable keystroke representation.
+
+Under same-topic conditions, the text-heavy fusion models achieve the highest ACC@$1$: CB-ITAD.25 and CB-ITAD.50 reach approximately $0.50$--$0.53$ across the $PT\cdot S$ and $T\cdot PS$ configurations, whereas CB-ITAD.75 ranges from approximately $0.34$ to $0.46$. Here semantic similarity is a useful identity signal, so stronger text weighting improves first-rank identification despite the lower ACC@$1$ of ITAD alone. The trend changes at higher ranks: in the same configurations, CB-ITAD.75 reaches approximately $0.90$--$0.93$ at ACC@$5$ against $0.86$--$0.87$ for CB-ITAD.25, so keystroke-dominant fusion more consistently retains the correct identity among the highest-ranked candidates.
+
+Topic variation amplifies this difference. Although ACC@$1$ does not change monotonically with the fusion weight, ACC@$5$ improves consistently as the keystroke contribution increases: under $P\cdot TS$, CB-ITAD.25 achieves approximately $0.47$--$0.49$, CB-ITAD.50 $0.61$--$0.62$, and CB-ITAD.75 $0.73$--$0.75$. The $\Delta A$ analysis shows the same ordering, with the topic effect falling from $0.387$ to $0.303$ and then to $0.204$ as the keystroke weight increases. Because the three models differ only in their weighting, this ordered reduction shows that the context sensitivity of the fused representation is inherited primarily from its text component.
+
+These results explain why fusion does not uniformly outperform every unimodal representation: it helps only when both modalities provide reliable evidence under the deployment conditions. Under a matched topic, semantic similarity complements the weaker ITAD representation; under topic variation, the same signal becomes less reliable and can shift the fused score toward topic-similar rather than identity-similar candidates. The two modalities are nevertheless complementary. Adding a modest text contribution improves the ranking of B-ITAD, which alone has weak ACC@$1$, under same-topic conditions, and keystroke-dominant fusion often outperforms B-ITAD under cross-topic conditions despite the poor performance of the text representation alone. A limited amount of textual information therefore remains useful when constrained by a more stable keystroke signal.
+
+No single fusion weight is optimal across contexts: text-heavy fusion performs best when gallery and probe share a topic, and keystroke-dominant fusion is more robust when topics differ. This motivates context-aware fusion that adapts modality weights to the expected reliability of each identity signal rather than a fixed weighting.
+```
 
 ---
 

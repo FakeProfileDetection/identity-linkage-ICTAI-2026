@@ -1,6 +1,7 @@
 # Statistical analysis
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 This is Section IV-D of the paper and its Figure 4. Two questions: are the
 contextual effects of Section IV-B statistically real, and are the differences
@@ -11,7 +12,8 @@ python compare_representations.py     # a few seconds
 ```
 
 It reads `../../experiments/results/scenario-results.csv` and writes
-`rank_heatmap.png` (Figure 4), `friedman_results.csv`, `average_ranks.csv`
+`rank_heatmap.pdf` (Figure 4, for the paper) and `rank_heatmap.png` (the same
+figure, for this page), `friedman_results.csv`, `average_ranks.csv`
 and one `nemenyi_<scenario>.csv` per configuration.
 
 ## The two analyses

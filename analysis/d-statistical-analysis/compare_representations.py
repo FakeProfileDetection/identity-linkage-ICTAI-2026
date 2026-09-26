@@ -1,6 +1,7 @@
 """Section IV-D: are the differences between representations statistically supported?
 
 Created: 2026-09-20
+Updated: 2026-09-25
 
 Within one gallery-probe configuration every representation is evaluated on the
 same platform-topic rotations, so the rotations act as blocks and the eight
@@ -87,14 +88,18 @@ def main():
     rank_table.round(4).to_csv(HERE / "average_ranks.csv")
     print("  wrote friedman_results.csv, average_ranks.csv, and one nemenyi_<scenario>.csv per scenario")
 
-    # Figure 4.
+    # Figure 4, drawn as the paper prints it: no title, the scenario labels
+    # without the word "Scenario", and wide enough to span both columns.
     common.heatmap(
         rank_table,
-        "Model Rankings Across All Scenarios (Mean Top-k Accuracy)\nLower ranks = better performance",
+        None,
         "Average Rank (1=best)",
-        HERE / "rank_heatmap.png",
+        [HERE / "rank_heatmap.pdf", HERE / "rank_heatmap.png"],
         ".1f",
         common.light_greens(reverse=True),
+        tick_prefix="",
+        figsize=(14, 4),
+        colorbar_label_size=15,
     )
     print()
     print(pd.DataFrame(omnibus).to_string(index=False))

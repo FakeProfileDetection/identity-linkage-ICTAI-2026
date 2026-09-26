@@ -31,7 +31,7 @@ RESULTS_CSV=../experiments/results/as-published/scenario-results.csv ./run_all.s
 | `a-overall-identity-linkage/` | Section IV-A, Figure 2 | `plot_heatmaps.py` | `accuracy_heatmaps.pdf` (the figure for the paper) and `.png`, plus `accuracy_heatmap_k{1,3,5}.png` one panel per file; its README explains the figure |
 | `b-contextual-variations/` | Section IV-B, Figure 3 | `contextual_effects.py` | `variable_effect_heatmap.pdf` (the figure for the paper) and `.png`, `effect_size_heatmap.pdf` and `.png`, `contextual_effects.csv`; its README explains the comparisons and the plots |
 | `c-multi-modal-fusion/` | Section IV-C | `fusion_weights.py` | `fusion_weights.csv`, `fusion_weight_sweep.png`; its README explains the sweep |
-| `d-statistical-analysis/` | Section IV-D, Figure 4 | `compare_representations.py` | `rank_heatmap.png`, `friedman_results.csv`, `average_ranks.csv`, `nemenyi_<scenario>.csv`; its README explains the tests and Figure 4 |
+| `d-statistical-analysis/` | Section IV-D, Figure 4 | `compare_representations.py` | `rank_heatmap.pdf` (the figure for the paper) and `.png`, `friedman_results.csv`, `average_ranks.csv`, `nemenyi_<scenario>.csv`; its README explains the tests and Figure 4 |
 | `extra-plots/` | not in the paper | four scripts, see below | supporting views that were cut for space |
 
 `common.py` holds the settings the scripts share: where the results live, the
