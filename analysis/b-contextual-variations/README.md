@@ -54,8 +54,8 @@ comparison reads the other way round**: its reference is the larger gallery
 
 ![Figure 3: ΔAUK for each representation and factor](variable_effect_heatmap.png)
 
-This is Figure 3. Each cell is ΔAUK for one representation (row) and one
-factor (column). Cells are shaded on one grey scale by their Bonferroni-corrected
+This is Figure 3. The figure has no title; the paper's caption names it. Each
+cell is ΔAUK for one representation (row) and one factor (column). Cells are shaded on one grey scale by their Bonferroni-corrected
 p-value: white is not significant, and the darker the cell the smaller the
 p-value, with the stars giving the level. One shade rather than the usual green
 and red keeps the figure readable for colour-blind readers and in a
